@@ -1,147 +1,130 @@
-const CATEGORIES = {
-  EVIDENCE: 'category-evidence',
-  PRODUCT: 'category-product',
-  CATEGORY: 'category-category'
+const FILTER_TYPES = {
+  EVIDENCE: 'filter-evidence',
+  PRODUCT: 'filter-product',
+  CATEGORY: 'filter-category'
 };
 
 const TARGETS = [
-  { order: 1, x: 602, y: 149 },
-  { order: 2, x: 515, y: 252 },
-  { order: 3, x: 649, y: 279 },
-  { order: 4, x: 426, y: 356 },
-  { order: 5, x: 560, y: 382 },
-  { order: 6, x: 767, y: 344 },
-  { order: 7, x: 897, y: 382 },
-  { order: 8, x: 322, y: 444 },
-  { order: 9, x: 1031, y: 415 },
-  { order: 10, x: 449, y: 488 },
-  { order: 11, x: 677, y: 447 },
-  { order: 12, x: 806, y: 480 },
-  { order: 13, x: 936, y: 513 },
-  { order: 14, x: 576, y: 539 },
-  { order: 15, x: 707, y: 579 },
-  { order: 16, x: 837, y: 611 },
-  { order: 17, x: 450, y: 623 },
-  { order: 18, x: 579, y: 673 }
+  { x: 602, y: 149 },
+  { x: 515, y: 252 },
+  { x: 649, y: 279 },
+  { x: 560, y: 382 },
+  { x: 426, y: 356 },
+  { x: 767, y: 344 },
+  { x: 897, y: 382 },
+  { x: 322, y: 444 },
+  { x: 1031, y: 415 },
+  { x: 449, y: 488 },
+  { x: 677, y: 447 },
+  { x: 806, y: 480 },
+  { x: 936, y: 513 },
+  { x: 576, y: 539 },
+  { x: 707, y: 579 },
+  { x: 837, y: 611 },
+  { x: 450, y: 623 },
+  { x: 579, y: 673 }
 ];
 
 const CIRCLES = [
   {
     id: 'rwe',
     label: 'Real World Evidence',
-    category: CATEGORIES.EVIDENCE,
-    count: 96
+    filterType: FILTER_TYPES.EVIDENCE
   },
   {
     id: 'clinical-trials',
     label: 'Clinical Trials',
-    category: CATEGORIES.EVIDENCE,
-    count: 20
-  },
-  {
-    id: 'epidemiology',
-    label: 'Epidemiology',
-    category: CATEGORIES.EVIDENCE,
-    count: 2
+    filterType: FILTER_TYPES.EVIDENCE
   },
   {
     id: 'liraglutide',
     label: 'Liraglutide',
-    category: CATEGORIES.PRODUCT,
-    count: 5
+    filterType: FILTER_TYPES.PRODUCT
   },
   {
     id: 'semaglutide',
     label: 'Semaglutide',
-    category: CATEGORIES.PRODUCT,
-    count: 5
+    filterType: FILTER_TYPES.PRODUCT
   },
   {
     id: 'weight-change',
     label: 'Weight Change',
-    category: CATEGORIES.CATEGORY,
-    count: 12
+    filterType: FILTER_TYPES.CATEGORY
   },
   {
     id: 'burden-of-disease',
     label: 'Burden of Disease',
-    category: CATEGORIES.CATEGORY,
-    count: 20
+    filterType: FILTER_TYPES.CATEGORY
   },
   {
     id: 'hypoglycemia',
     label: 'Hypoglycemia',
-    category: CATEGORIES.CATEGORY,
-    count: 2
+    filterType: FILTER_TYPES.CATEGORY
+  },
+  {
+    id: 'epidemiology',
+    label: 'Epidemiology',
+    filterType: FILTER_TYPES.CATEGORY
   },
   {
     id: 'sub-population',
     label: 'Sub-population',
-    category: CATEGORIES.CATEGORY,
-    count: 2
+    filterType: FILTER_TYPES.CATEGORY
   },
   {
     id: 'health-economic-evaluation',
     label: 'Health Economic Evaluation',
-    category: CATEGORIES.CATEGORY,
-    count: 10
+    filterType: FILTER_TYPES.CATEGORY
   },
   {
     id: 'meta-analysis',
     label: 'Meta Analysis',
-    category: CATEGORIES.CATEGORY,
-    count: 15
+    filterType: FILTER_TYPES.CATEGORY
   },
   {
     id: 'cost',
     label: 'Cost',
-    category: CATEGORIES.CATEGORY,
-    count: 19
+    filterType: FILTER_TYPES.CATEGORY
   },
   {
     id: 'cardio-vascular',
     label: 'Cardio Vascular',
-    category: CATEGORIES.CATEGORY,
-    count: 7
+    filterType: FILTER_TYPES.CATEGORY
   },
   {
     id: 'adherence-persistence',
     label: 'Adherence/ Persistence',
-    category: CATEGORIES.CATEGORY,
-    count: 28
+    filterType: FILTER_TYPES.CATEGORY
   },
   {
     id: 'short-term-studies',
     label: 'Short-term Studies',
-    category: CATEGORIES.CATEGORY,
-    count: 1
+    filterType: FILTER_TYPES.CATEGORY
   },
   {
     id: 'comparitive-effectiveness',
     label: 'Comparitive Effectiveness',
-    category: CATEGORIES.CATEGORY,
-    count: 29
+    filterType: FILTER_TYPES.CATEGORY
   },
   {
     id: 'long-term-studies',
     label: 'Long-term Studies',
-    category: CATEGORIES.CATEGORY,
-    count: 2
+    filterType: FILTER_TYPES.CATEGORY
   },
   {
     id: 'AIC',
     label: 'A1C',
-    category: CATEGORIES.CATEGORY,
-    count: 5
+    filterType: FILTER_TYPES.CATEGORY
   }
 ];
 
 class Circle {
-  constructor(config, parent) {
-    this.category = config.category;
+  constructor(config, app) {
+    this.filterType = config.filterType;
     this.id = config.id;
     this.label = config.label;
     this.count = this.getArticleCount();
+    this.app = app;
     this.selected = false;
     this.size = 130;
     this.radius = 50;
@@ -157,7 +140,8 @@ class Circle {
     // circle
     var c = document.createElement('div');
     c.classList.add('circle');
-    c.classList.add(this.category);
+    c.classList.add('circle--showing');
+    c.classList.add(this.filterType);
     c.id = this.id;
     c.style.width = this.size + 'px';
     c.style.height = this.size + 'px';
@@ -177,6 +161,12 @@ class Circle {
     cm.classList.add('circle__checkmark');
     c.appendChild(cm);
 
+    // checkmark
+    var x = document.createElement('div');
+    x.classList.add('circle__uncheck');
+    x.innerText = '×';
+    c.appendChild(x);
+
     // label
     var l = document.createElement('span');
     l.innerText = this.label;
@@ -185,19 +175,32 @@ class Circle {
 
     return c;
   }
-  handleClick(e) {
-    this.toggleSelected();
-  }
   getArticleCount() {
     let that = this;
     return ARTICLES.filter(x => {
-      if (that.id === 'rwe') return true;
+      // if (that.id === 'rwe') return true;
       return (
         x.evidence === that.id ||
         x.product === that.id ||
         x.categories.indexOf(that.id) != -1
       );
     }).length;
+  }
+  handleClick(e) {
+    this.toggleSelected();
+    this.app.filter();
+  }
+  hide() {
+    this.el.classList.remove('circle--showing');
+    var bounce = new Bounce();
+    bounce
+      .scale({
+        from: { x: 1, y: 1 },
+        to: { x: 0.5, y: 0.5 },
+        duration: 600,
+        stiffness: 4
+      })
+      .applyTo(this.el);
   }
   move(x, y) {
     this.moveX(x);
@@ -218,25 +221,25 @@ class Circle {
     document.querySelector('#EvidenceFinder').appendChild(this.el);
     return this;
   }
+  show() {
+    this.el.classList.add('circle--showing');
+    var bounce = new Bounce();
+    bounce
+      .scale({
+        from: { x: 0.5, y: 0.5 },
+        to: { x: 1, y: 1 },
+        duration: 1000,
+        stiffness: 4
+      })
+      .applyTo(this.el);
+  }
   toggleSelected() {
     this.selected = !this.selected;
-
     if (this.selected) {
-      this.el.classList.add(this.category + '--selected');
-
-      var bounce = new Bounce();
-      bounce
-        .scale({
-          from: { x: 0.5, y: 0.5 },
-          to: { x: 1, y: 1 },
-          duration: 600,
-          stiffness: 4
-        })
-        .applyTo(this.el);
-      // this.el.classList.remove('animated');
-      // this.el.classList.add('tada');
+      this.el.classList.add(this.filterType + '--selected');
+      this.show();
     } else {
-      this.el.classList.remove(this.category + '--selected');
+      this.el.classList.remove(this.filterType + '--selected');
     }
     return this;
   }
@@ -248,12 +251,109 @@ class EvidenceFinder {
     this.height = 960;
     this.circles = CIRCLES.map(a => new Circle(a, this));
     this.packCircles();
+    this.filter();
   }
   checkCollision(circle1, circle2) {
     let dx = Math.ceil(circle1.x - circle2.x);
     let dy = Math.ceil(circle1.y - circle2.y);
     let distance = Math.sqrt(dx * dx + dy * dy);
     return distance < circle1.radius + circle2.radius;
+  }
+  filter() {
+    let filtersApplied = this.circles.filter(x => x.selected).map(x => x.id);
+    let hasEvidenceFilter =
+      filtersApplied.indexOf('rwe') > -1 ||
+      filtersApplied.indexOf('clinical-trials') > -1;
+    let hasProductFilter =
+      filtersApplied.indexOf('liraglutide') > -1 ||
+      filtersApplied.indexOf('semaglutide') > -1;
+    let noFilter = !hasEvidenceFilter && !hasProductFilter;
+    let filteredArticles = ARTICLES.filter(x => {
+      let useEvidenceFilter = hasEvidenceFilter
+        ? filtersApplied.indexOf(x.evidence) > -1
+        : true;
+      let useProductFilter = hasProductFilter
+        ? filtersApplied.indexOf(x.product) > -1
+        : true;
+      return useEvidenceFilter && useProductFilter;
+    });
+
+    // tallies
+
+    let livesStudied = filteredArticles.reduce((sum, x, i, ary) => {
+      return sum + x.lives;
+    }, 0);
+
+    var livesTally = parseInt(
+      document.querySelector('.tally__lives__number').innerText
+    );
+    var livesInterval = setInterval(function() {
+      document.querySelector('.tally__lives__number').innerText = livesTally;
+      if (livesTally === livesStudied) clearInterval(livesInterval);
+      livesTally = livesTally > livesStudied ? livesTally - 1 : livesTally + 1;
+    }, 1);
+
+    var articlesTally = parseInt(
+      document.querySelector('.tally__articles__number').innerText
+    );
+    var articlesInterval = setInterval(function() {
+      document.querySelector(
+        '.tally__articles__number'
+      ).innerText = articlesTally;
+      if (articlesTally === filteredArticles.length)
+        clearInterval(articlesInterval);
+      articlesTally =
+        articlesTally > filteredArticles.length
+          ? articlesTally - 1
+          : articlesTally + 1;
+    }, 5);
+
+    let circlesToShow = _.uniq(
+      _.flatten(filteredArticles.map(x => x.categories))
+    );
+
+    let circlesToFilterIn = [];
+    let circlesToFilterOut = [];
+    this.circles.forEach(x => {
+      if (
+        ['rwe', 'clinical-trials', 'liraglutide', 'semaglutide'].indexOf(
+          x.id
+        ) === -1 &&
+        filtersApplied.indexOf(x.id) === -1
+      ) {
+        if (circlesToShow.indexOf(x.id) === -1 && !noFilter) {
+          circlesToFilterOut.push(x);
+        } else {
+          circlesToFilterIn.push(x);
+        }
+      }
+    });
+
+    circlesToFilterIn.forEach((x, i) => {
+      setTimeout(() => {
+        x.show();
+      }, _.random(0, 500));
+    });
+
+    circlesToFilterOut.forEach((x, i) => {
+      setTimeout(() => {
+        x.hide();
+      }, _.random(0, 500));
+    });
+
+    // let filterByAllEvidenceTypes =
+    //   (filtersApplied.indexOf('rwe') > -1 &&
+    //     filtersApplied.indexOf('clinical-trials') > -1) ||
+    //   (filtersApplied.indexOf('rwe') === -1 &&
+    //     filtersApplied.indexOf('clinical-trials') === -1);
+
+    // let filterByAllProductTypes =
+    //   (filtersApplied.indexOf('liraglutide') > -1 &&
+    //     filtersApplied.indexOf('semaglutide') > -1) ||
+    //   (filtersApplied.indexOf('liraglutide') === -1 &&
+    //     filtersApplied.indexOf('semaglutide') === -1);
+
+    // console.log(distinctCategories);
   }
   hasOverlappingCircles() {
     return this.circles.every(x => {});
@@ -270,7 +370,7 @@ class EvidenceFinder {
           from: { x: 0.25, y: 0.25 },
           to: { x: 1, y: 1 },
           duration: 1000,
-          stiffness: 1
+          stiffness: 8
         })
         .applyTo(x.el);
     });
