@@ -13,5 +13,9 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "bounce.js": "^0.8.2",
+    "lodash": "^4.17.4"
+  }
 }

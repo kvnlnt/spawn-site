@@ -141,7 +141,7 @@ class Circle {
     this.category = config.category;
     this.id = config.id;
     this.label = config.label;
-    this.count = config.count;
+    this.count = this.getArticleCount();
     this.selected = false;
     this.size = 130;
     this.radius = 50;
@@ -187,6 +187,17 @@ class Circle {
   }
   handleClick(e) {
     this.toggleSelected();
+  }
+  getArticleCount() {
+    let that = this;
+    return ARTICLES.filter(x => {
+      if (that.id === 'rwe') return true;
+      return (
+        x.evidence === that.id ||
+        x.product === that.id ||
+        x.categories.indexOf(that.id) != -1
+      );
+    }).length;
   }
   move(x, y) {
     this.moveX(x);
