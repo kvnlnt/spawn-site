@@ -188,7 +188,12 @@ class Circle {
   }
   handleClick(e) {
     this.toggleSelected();
-    this.app.filter();
+    if (
+      ['rwe', 'clinical-trials', 'liraglutide', 'semaglutide'].indexOf(
+        this.id
+      ) > -1
+    )
+      this.app.filter();
   }
   hide() {
     this.el.classList.remove('circle--showing');
@@ -261,21 +266,30 @@ class EvidenceFinder {
   }
   filter() {
     let filtersApplied = this.circles.filter(x => x.selected).map(x => x.id);
+
     let hasEvidenceFilter =
       filtersApplied.indexOf('rwe') > -1 ||
       filtersApplied.indexOf('clinical-trials') > -1;
+
     let hasProductFilter =
       filtersApplied.indexOf('liraglutide') > -1 ||
       filtersApplied.indexOf('semaglutide') > -1;
+
     let noFilter = !hasEvidenceFilter && !hasProductFilter;
+
     let filteredArticles = ARTICLES.filter(x => {
-      let useEvidenceFilter = hasEvidenceFilter
-        ? filtersApplied.indexOf(x.evidence) > -1
-        : true;
-      let useProductFilter = hasProductFilter
-        ? filtersApplied.indexOf(x.product) > -1
-        : true;
-      return useEvidenceFilter && useProductFilter;
+      if (hasEvidenceFilter && hasProductFilter) {
+        return (
+          filtersApplied.indexOf(x.evidence) > -1 &&
+          filtersApplied.indexOf(x.product) > -1
+        );
+      } else if (hasEvidenceFilter && !hasProductFilter) {
+        return filtersApplied.indexOf(x.evidence) > -1;
+      } else if (!hasEvidenceFilter && hasProductFilter) {
+        return filtersApplied.indexOf(x.product) > -1;
+      } else {
+        return true;
+      }
     });
 
     // tallies
@@ -329,9 +343,15 @@ class EvidenceFinder {
       }
     });
 
+    let reassignTargets = _.slice(TARGETS, 4, 4 + circlesToFilterIn.length);
+
+    let ti = 0;
     circlesToFilterIn.forEach((x, i) => {
+      let newTarget = reassignTargets[ti];
+      ti += 1;
       setTimeout(() => {
         x.show();
+        x.move(newTarget.x, newTarget.y);
       }, _.random(0, 500));
     });
 
