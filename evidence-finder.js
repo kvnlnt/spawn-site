@@ -376,6 +376,8 @@ class EvidenceFinder {
       }
     });
 
+    console.log(filteredArticles);
+
     // tallies
 
     let livesStudied = filteredArticles.reduce((sum, x, i, ary) => {
