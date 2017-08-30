@@ -46,9 +46,36 @@ const TARGETS_MOBILE = [
   { x: 535, y: 651 }
 ];
 
+const TARGETS_GRID = [
+  { x: 350, y: 135 },
+  { x: 460, y: 135 },
+  { x: 570, y: 135 },
+
+  { x: 350, y: 245 },
+  { x: 460, y: 245 },
+  { x: 570, y: 245 },
+
+  { x: 350, y: 355 },
+  { x: 460, y: 355 },
+  { x: 570, y: 355 },
+
+  { x: 350, y: 465 },
+  { x: 460, y: 465 },
+  { x: 570, y: 465 },
+
+  { x: 350, y: 575 },
+  { x: 460, y: 575 },
+  { x: 570, y: 575 },
+
+  { x: 350, y: 685 },
+  { x: 460, y: 685 },
+  { x: 570, y: 685 }
+];
+
 const MODE = {
   DESKTOP: 'DESKTOP',
-  MOBILE: 'MOBILE'
+  MOBILE: 'MOBILE',
+  GRID: 'GRID'
 };
 
 const CIRCLES = [
@@ -307,7 +334,13 @@ class EvidenceFinder {
     this.filter();
     document
       .querySelector('#ViewArticles')
-      .addEventListener('click', this.toggleMode.bind(this));
+      .addEventListener('click', this.changeModeToMobile.bind(this));
+    document
+      .querySelector('.drawer')
+      .addEventListener('click', this.changeModeToDesktop.bind(this));
+    document
+      .querySelector('.ongrid')
+      .addEventListener('click', this.changeModeToOnGrid.bind(this));
   }
   checkCollision(circle1, circle2) {
     let dx = Math.ceil(circle1.x - circle2.x);
@@ -394,7 +427,18 @@ class EvidenceFinder {
       }
     });
 
-    let targets = this.mode === MODE.DESKTOP ? TARGETS_DESKTOP : TARGETS_MOBILE;
+    let targets;
+    switch (this.mode) {
+      case MODE.DESKTOP:
+        targets = TARGETS_DESKTOP;
+        break;
+      case MODE.MOBILE:
+        targets = TARGETS_MOBILE;
+        break;
+      case MODE.GRID:
+        targets = TARGETS_GRID;
+        break;
+    }
 
     let reassignTargets = _.slice(targets, 4, 4 + circlesToFilterIn.length);
 
@@ -467,13 +511,22 @@ class EvidenceFinder {
     let yDiff = circle1.y - circle2.y;
     circle2.move(xDiff, yDiff);
   }
-  toggleMode() {
-    this.mode = this.mode === MODE.DESKTOP ? MODE.MOBILE : MODE.DESKTOP;
-    this.mode === MODE.DESKTOP
-      ? this.transitionToDesktop()
-      : this.transitionToMobile();
+  changeModeToDesktop() {
+    this.mode = MODE.DESKTOP;
+    this.transitionToDesktop();
+  }
+  changeModeToMobile() {
+    this.mode = MODE.MOBILE;
+    this.transitionToMobile();
+  }
+  changeModeToOnGrid() {
+    this.mode = MODE.GRID;
+    this.transitionToGrid();
   }
   transitionToDesktop() {
+    document.body.querySelector('.tally').classList.remove('tally--mobile');
+    document.body.querySelector('.tally').classList.add('tally--desktop');
+    document.body.querySelector('.drawer').classList.remove('drawer--open');
     let i = 0;
     this.circles.forEach(x => {
       x.changeModeTo(MODE.DESKTOP);
@@ -483,10 +536,27 @@ class EvidenceFinder {
     this.filter();
   }
   transitionToMobile() {
+    document.body.querySelector('.tally').classList.remove('tally--desktop');
+    document.body.querySelector('.tally').classList.add('tally--mobile');
+    document.body.querySelector('.drawer').classList.add('drawer--open');
+
     let i = 0;
     this.circles.forEach(x => {
       x.changeModeTo(MODE.MOBILE);
       x.move(TARGETS_MOBILE[i].x, TARGETS_MOBILE[i].y);
+      i += 1;
+    });
+    this.filter();
+  }
+  transitionToGrid() {
+    document.body.querySelector('.tally').classList.remove('tally--desktop');
+    document.body.querySelector('.tally').classList.add('tally--mobile');
+    document.body.querySelector('.drawer').classList.add('drawer--open');
+
+    let i = 0;
+    this.circles.forEach(x => {
+      x.changeModeTo(MODE.MOBILE);
+      x.move(TARGETS_GRID[i].x, TARGETS_GRID[i].y);
       i += 1;
     });
     this.filter();
