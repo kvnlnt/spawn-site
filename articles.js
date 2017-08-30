@@ -1,1478 +1,834 @@
 const ARTICLES = [
   {
-    "categories": [
-      "short-term-studies"
-    ],
-    "product": "semaglutide",
-    "evidence": "rwe",
-    "lives": 4,
-    "authors": [
-      {
-        "name": "Georgia England"
-      },
-      {
-        "name": "Jerri Holder"
-      }
-    ],
-    "title": "aliqua cupidatat proident do eu",
-    "_id": "59a6dab2507e52bfb26b2eb9"
-  },
-  {
-    "categories": [
-      "cardio-vascular"
-    ],
-    "product": "semaglutide",
-    "evidence": "rwe",
-    "lives": 5,
-    "authors": [
-      {
-        "name": "Hansen Barnes"
-      },
-      {
-        "name": "Dixon Payne"
-      }
-    ],
-    "title": "magna adipisicing anim reprehenderit fugiat",
-    "_id": "59a6dab2d6d45391bf053aa6"
-  },
-  {
-    "categories": [
-      "adherence-persistence"
-    ],
-    "product": "semaglutide",
-    "evidence": "rwe",
-    "lives": 4,
-    "authors": [
-      {
-        "name": "Patrick Ball"
-      },
-      {
-        "name": "Alyson Fitzpatrick"
-      }
-    ],
-    "title": "ut aliqua Lorem do irure",
-    "_id": "59a6dab2dea62585354eb400"
-  },
-  {
-    "categories": [
-      "weight-change"
-    ],
-    "product": "semaglutide",
-    "evidence": "rwe",
-    "lives": 1,
-    "authors": [
-      {
-        "name": "Mckenzie Wyatt"
-      },
-      {
-        "name": "Ursula Garza"
-      }
-    ],
-    "title": "aute irure cupidatat irure proident",
-    "_id": "59a6dab2a9d8198b56befec9"
-  },
-  {
-    "categories": [
-      "meta-analysis"
-    ],
-    "product": "semaglutide",
-    "evidence": "rwe",
-    "lives": 6,
-    "authors": [
-      {
-        "name": "Alejandra Stokes"
-      },
-      {
-        "name": "Helena Reilly"
-      }
-    ],
-    "title": "consectetur sint sunt eu sint",
-    "_id": "59a6dab2e170689721253a61"
-  },
-  {
-    "categories": [
-      "comparitive-effectiveness"
-    ],
-    "product": "semaglutide",
-    "evidence": "rwe",
-    "lives": 3,
-    "authors": [
-      {
-        "name": "Koch Kent"
-      },
-      {
-        "name": "Colette Dawson"
-      }
-    ],
-    "title": "laborum aute elit Lorem tempor",
-    "_id": "59a6dab2db3a1569de47efc5"
-  },
-  {
-    "categories": [
-      "weight-change"
-    ],
-    "product": "semaglutide",
-    "evidence": "clinical-trials",
-    "lives": 3,
-    "authors": [
-      {
-        "name": "Kris Santos"
-      },
-      {
-        "name": "Ronda Cummings"
-      }
-    ],
-    "title": "veniam laboris duis non duis",
-    "_id": "59a6dab2690ea57ec1ae2327"
-  },
-  {
-    "categories": [
-      "epidemiology"
-    ],
-    "product": "semaglutide",
-    "evidence": "clinical-trials",
-    "lives": 4,
-    "authors": [
-      {
-        "name": "Hines Beck"
-      },
-      {
-        "name": "Santiago Thornton"
-      }
-    ],
-    "title": "dolor incididunt enim nulla consequat",
-    "_id": "59a6dab2a38c768e95d352ac"
-  },
-  {
-    "categories": [
-      "cost"
-    ],
-    "product": "semaglutide",
-    "evidence": "rwe",
-    "lives": 4,
-    "authors": [
-      {
-        "name": "Flores Peterson"
-      },
-      {
-        "name": "Lara Dennis"
-      }
-    ],
-    "title": "labore nulla cillum reprehenderit cillum",
-    "_id": "59a6dab23f2270ee08c40e87"
-  },
-  {
-    "categories": [
-      "cardio-vascular"
-    ],
-    "product": "semaglutide",
-    "evidence": "rwe",
-    "lives": 3,
-    "authors": [
-      {
-        "name": "Larson Workman"
-      },
-      {
-        "name": "Walker Rowe"
-      }
-    ],
-    "title": "culpa laboris sit consectetur aute",
-    "_id": "59a6dab21b9623fac7bc2c9e"
-  },
-  {
-    "categories": [
-      "adherence-persistence"
-    ],
-    "product": "semaglutide",
-    "evidence": "rwe",
-    "lives": 8,
-    "authors": [
-      {
-        "name": "Meyers Nolan"
-      },
-      {
-        "name": "Delaney Mcdowell"
-      }
-    ],
-    "title": "sit dolore sit proident excepteur",
-    "_id": "59a6dab23cc391f5f7e64137"
-  },
-  {
-    "categories": [
-      "cost"
-    ],
-    "product": "semaglutide",
-    "evidence": "clinical-trials",
-    "lives": 8,
-    "authors": [
-      {
-        "name": "Frank Small"
-      },
-      {
-        "name": "Hewitt Ford"
-      }
-    ],
-    "title": "cillum ullamco qui ad nulla",
-    "_id": "59a6dab2d733394048a9e482"
-  },
-  {
-    "categories": [
-      "comparitive-effectiveness"
-    ],
-    "product": "semaglutide",
-    "evidence": "clinical-trials",
-    "lives": 4,
-    "authors": [
-      {
-        "name": "Workman Goodwin"
-      },
-      {
-        "name": "Lucia Carey"
-      }
-    ],
-    "title": "amet id dolor cupidatat consequat",
-    "_id": "59a6dab22804a3e3096836bc"
-  },
-  {
-    "categories": [
-      "weight-change"
-    ],
-    "product": "liraglutide",
-    "evidence": "rwe",
-    "lives": 4,
-    "authors": [
-      {
-        "name": "Bethany Barnett"
-      },
-      {
-        "name": "Sharon Duran"
-      }
-    ],
-    "title": "non nostrud aute non cillum",
-    "_id": "59a6dab26263f02c3b3f6d88"
-  },
-  {
-    "categories": [
-      "burden-of-disease"
-    ],
-    "product": "liraglutide",
-    "evidence": "rwe",
-    "lives": 6,
-    "authors": [
-      {
-        "name": "Mejia Coleman"
-      },
-      {
-        "name": "Antonia Holman"
-      }
-    ],
-    "title": "laboris aliqua officia aute exercitation",
-    "_id": "59a6dab27d0a95cce57c93c9"
-  },
-  {
-    "categories": [
-      "short-term-studies"
-    ],
-    "product": "semaglutide",
-    "evidence": "rwe",
-    "lives": 2,
-    "authors": [
-      {
-        "name": "Ethel Haynes"
-      },
-      {
-        "name": "Mamie Forbes"
-      }
-    ],
-    "title": "magna aute aliquip amet exercitation",
-    "_id": "59a6dab281cc18d49c8aaf28"
-  },
-  {
-    "categories": [
-      "burden-of-disease"
-    ],
-    "product": "semaglutide",
-    "evidence": "clinical-trials",
-    "lives": 2,
-    "authors": [
-      {
-        "name": "Susanne Moore"
-      },
-      {
-        "name": "Celia Ware"
-      }
-    ],
-    "title": "dolor fugiat adipisicing aliqua laboris",
-    "_id": "59a6dab2ccfdb0819661db66"
-  },
-  {
-    "categories": [
-      "adherence-persistence"
-    ],
-    "product": "liraglutide",
-    "evidence": "clinical-trials",
-    "lives": 8,
-    "authors": [
-      {
-        "name": "Newman Reyes"
-      },
-      {
-        "name": "Hart Stein"
-      }
-    ],
-    "title": "reprehenderit ad duis culpa deserunt",
-    "_id": "59a6dab278359f1f8a334bf2"
-  },
-  {
-    "categories": [
-      "sub-population"
-    ],
-    "product": "liraglutide",
-    "evidence": "rwe",
-    "lives": 9,
-    "authors": [
-      {
-        "name": "Becky Taylor"
-      },
-      {
-        "name": "Kaitlin Cotton"
-      }
-    ],
-    "title": "sit sit enim nisi ea",
-    "_id": "59a6dab27563def35378904d"
-  },
-  {
-    "categories": [
-      "cost"
-    ],
-    "product": "semaglutide",
-    "evidence": "clinical-trials",
-    "lives": 2,
-    "authors": [
-      {
-        "name": "Mccall Curry"
-      },
-      {
-        "name": "Jamie Savage"
-      }
-    ],
-    "title": "exercitation nostrud duis quis do",
-    "_id": "59a6dab2de3364afd49ba8a4"
-  },
-  {
-    "categories": [
-      "cost"
-    ],
-    "product": "liraglutide",
-    "evidence": "rwe",
-    "lives": 5,
-    "authors": [
-      {
-        "name": "Hurst Paul"
-      },
-      {
-        "name": "Rojas Riley"
-      }
-    ],
-    "title": "dolore dolore consequat ad non",
-    "_id": "59a6dab21a71218f88715786"
-  },
-  {
-    "categories": [
-      "cardio-vascular"
-    ],
-    "product": "semaglutide",
-    "evidence": "rwe",
-    "lives": 9,
-    "authors": [
-      {
-        "name": "Velma Reynolds"
-      },
-      {
-        "name": "Stephanie Hanson"
-      }
-    ],
-    "title": "duis consequat sit fugiat in",
-    "_id": "59a6dab290ee52a497239264"
-  },
-  {
-    "categories": [
-      "cost"
-    ],
-    "product": "liraglutide",
-    "evidence": "clinical-trials",
-    "lives": 3,
-    "authors": [
-      {
-        "name": "Aline Flores"
-      },
-      {
-        "name": "Carter Murray"
-      }
-    ],
-    "title": "id anim fugiat qui in",
-    "_id": "59a6dab2d45e71dafa619812"
-  },
-  {
-    "categories": [
-      "epidemiology"
-    ],
-    "product": "semaglutide",
-    "evidence": "rwe",
-    "lives": 7,
-    "authors": [
-      {
-        "name": "Marlene Wood"
-      },
-      {
-        "name": "Sheena Bennett"
-      }
-    ],
-    "title": "aute qui do tempor ea",
-    "_id": "59a6dab269d2ab64ce27ba5b"
-  },
-  {
-    "categories": [
-      "long-term-studies"
-    ],
-    "product": "semaglutide",
-    "evidence": "clinical-trials",
-    "lives": 9,
-    "authors": [
-      {
-        "name": "Jenna Peck"
-      },
-      {
-        "name": "Farley Lindsay"
-      }
-    ],
-    "title": "laboris proident dolor eu consectetur",
-    "_id": "59a6dab29282caa6b58ddddc"
-  },
-  {
-    "categories": [
-      "hypoglycemia"
-    ],
-    "product": "semaglutide",
-    "evidence": "rwe",
-    "lives": 5,
-    "authors": [
-      {
-        "name": "Franks Mooney"
-      },
-      {
-        "name": "Elnora Wallace"
-      }
-    ],
-    "title": "aute ex proident ex veniam",
-    "_id": "59a6dab23c437785516fd17b"
-  },
-  {
-    "categories": [
-      "short-term-studies"
-    ],
-    "product": "liraglutide",
-    "evidence": "clinical-trials",
-    "lives": 8,
-    "authors": [
-      {
-        "name": "Dana Wade"
-      },
-      {
-        "name": "James Myers"
-      }
-    ],
-    "title": "quis ut culpa officia nostrud",
-    "_id": "59a6dab21fb19e3137aed079"
-  },
-  {
-    "categories": [
-      "short-term-studies"
-    ],
-    "product": "semaglutide",
-    "evidence": "rwe",
-    "lives": 9,
-    "authors": [
-      {
-        "name": "Bartlett Jacobs"
-      },
+    _id: '59a734d2c06606e9c2354ac4',
+    title: 'qui irure aute deserunt incididunt',
+    authors: [
       {
-        "name": "Trujillo Roman"
-      }
-    ],
-    "title": "voluptate culpa magna laborum irure",
-    "_id": "59a6dab23685d83bbe588777"
-  },
-  {
-    "categories": [
-      "burden-of-disease"
-    ],
-    "product": "semaglutide",
-    "evidence": "rwe",
-    "lives": 3,
-    "authors": [
-      {
-        "name": "Dianna Simon"
-      },
-      {
-        "name": "Leila Hays"
-      }
-    ],
-    "title": "duis ea mollit eiusmod duis",
-    "_id": "59a6dab29e5805f92e26bb1e"
-  },
-  {
-    "categories": [
-      "long-term-studies"
-    ],
-    "product": "liraglutide",
-    "evidence": "rwe",
-    "lives": 2,
-    "authors": [
-      {
-        "name": "Hazel Owens"
-      },
-      {
-        "name": "Ross Hull"
-      }
-    ],
-    "title": "eiusmod mollit adipisicing enim fugiat",
-    "_id": "59a6dab20f091b882a62bf97"
-  },
-  {
-    "categories": [
-      "AIC"
-    ],
-    "product": "semaglutide",
-    "evidence": "clinical-trials",
-    "lives": 9,
-    "authors": [
-      {
-        "name": "Bertha Bridges"
+        name: 'Susanne Haley'
       },
       {
-        "name": "Katharine Heath"
+        name: 'Barry Barrera'
       }
     ],
-    "title": "eiusmod sint ut sit sint",
-    "_id": "59a6dab262191aa964de5414"
+    lives: 4,
+    evidence: 'rwe',
+    product: 'liraglutide',
+    categories: ['meta-analysis']
   },
   {
-    "categories": [
-      "weight-change"
-    ],
-    "product": "liraglutide",
-    "evidence": "clinical-trials",
-    "lives": 6,
-    "authors": [
+    _id: '59a734d272e4336335546570',
+    title: 'eiusmod consequat culpa minim exercitation',
+    authors: [
       {
-        "name": "Joseph Patterson"
+        name: 'Chasity Roach'
       },
       {
-        "name": "Sweet Ramirez"
+        name: 'Meredith Blake'
       }
     ],
-    "title": "incididunt nisi ad et pariatur",
-    "_id": "59a6dab2044e00b42c95477c"
+    lives: 4,
+    evidence: 'clinical-trials',
+    product: 'semaglutide',
+    categories: ['burden-of-disease']
   },
   {
-    "categories": [
-      "meta-analysis"
-    ],
-    "product": "semaglutide",
-    "evidence": "clinical-trials",
-    "lives": 9,
-    "authors": [
+    _id: '59a734d26b68e13b306b9a59',
+    title: 'esse reprehenderit culpa est mollit',
+    authors: [
       {
-        "name": "Gonzalez Cervantes"
+        name: 'Violet Williams'
       },
       {
-        "name": "Bates Robbins"
+        name: 'Lamb Reilly'
       }
     ],
-    "title": "qui est quis incididunt consequat",
-    "_id": "59a6dab24060ec1b194bf3fd"
+    lives: 5,
+    evidence: 'rwe',
+    product: 'semaglutide',
+    categories: ['cost']
   },
   {
-    "categories": [
-      "adherence-persistence"
-    ],
-    "product": "semaglutide",
-    "evidence": "rwe",
-    "lives": 6,
-    "authors": [
+    _id: '59a734d2656a124122347627',
+    title: 'minim dolore enim labore aliquip',
+    authors: [
       {
-        "name": "Elma Tran"
+        name: 'Cecile Cash'
       },
       {
-        "name": "Elisa Conway"
+        name: 'Belinda Santos'
       }
     ],
-    "title": "eu est tempor consectetur id",
-    "_id": "59a6dab2a31571ad4fb9d895"
+    lives: 1,
+    evidence: 'clinical-trials',
+    product: 'liraglutide',
+    categories: ['weight-change']
   },
   {
-    "categories": [
-      "sub-population"
-    ],
-    "product": "semaglutide",
-    "evidence": "clinical-trials",
-    "lives": 2,
-    "authors": [
+    _id: '59a734d21b0f68cf8476f341',
+    title: 'excepteur dolore aliqua veniam aliquip',
+    authors: [
       {
-        "name": "Chelsea Hinton"
+        name: 'Alice Ware'
       },
       {
-        "name": "Valerie Petty"
+        name: 'Castillo Mccoy'
       }
     ],
-    "title": "adipisicing quis laborum esse cillum",
-    "_id": "59a6dab229c2ccc366a49742"
+    lives: 6,
+    evidence: 'clinical-trials',
+    product: 'liraglutide',
+    categories: ['cost']
   },
   {
-    "categories": [
-      "epidemiology"
-    ],
-    "product": "liraglutide",
-    "evidence": "clinical-trials",
-    "lives": 2,
-    "authors": [
+    _id: '59a734d26b3b01925f34f3d0',
+    title: 'sit veniam do amet fugiat',
+    authors: [
       {
-        "name": "Tanner Sosa"
+        name: 'Sanders Molina'
       },
       {
-        "name": "Tracey Lindsey"
+        name: 'Hickman Greer'
       }
     ],
-    "title": "cillum ullamco quis magna culpa",
-    "_id": "59a6dab2ccb43c2e3f3ea2f5"
+    lives: 9,
+    evidence: 'rwe',
+    product: 'liraglutide',
+    categories: ['hypoglycemia']
   },
   {
-    "categories": [
-      "cost"
-    ],
-    "product": "semaglutide",
-    "evidence": "clinical-trials",
-    "lives": 3,
-    "authors": [
+    _id: '59a734d2a794d7280e4f65a0',
+    title: 'consequat commodo voluptate aliqua et',
+    authors: [
       {
-        "name": "Owens Stevens"
+        name: 'Mccullough Lester'
       },
       {
-        "name": "Huff Baker"
+        name: 'Priscilla Huff'
       }
     ],
-    "title": "adipisicing dolor laborum sunt dolor",
-    "_id": "59a6dab284b1dc6540690d86"
+    lives: 4,
+    evidence: 'rwe',
+    product: 'liraglutide',
+    categories: ['adherence-persistence']
   },
   {
-    "categories": [
-      "meta-analysis"
-    ],
-    "product": "semaglutide",
-    "evidence": "clinical-trials",
-    "lives": 9,
-    "authors": [
+    _id: '59a734d23290e29d774d584d',
+    title: 'ullamco tempor duis esse magna',
+    authors: [
       {
-        "name": "Tamara Butler"
+        name: 'Angel Pacheco'
       },
       {
-        "name": "Bianca Schroeder"
+        name: 'John Hansen'
       }
     ],
-    "title": "reprehenderit ad laboris incididunt tempor",
-    "_id": "59a6dab25d94964df9751c2f"
+    lives: 5,
+    evidence: 'rwe',
+    product: 'liraglutide',
+    categories: ['cost']
   },
   {
-    "categories": [
-      "cost"
-    ],
-    "product": "liraglutide",
-    "evidence": "rwe",
-    "lives": 1,
-    "authors": [
+    _id: '59a734d26756dff28678a831',
+    title: 'commodo duis irure officia quis',
+    authors: [
       {
-        "name": "Walter Floyd"
+        name: 'Latoya Vance'
       },
       {
-        "name": "Ferrell Woodward"
+        name: 'Dalton Yang'
       }
     ],
-    "title": "ex est dolor proident enim",
-    "_id": "59a6dab271dddd47081330fc"
+    lives: 6,
+    evidence: 'clinical-trials',
+    product: 'liraglutide',
+    categories: ['meta-analysis']
   },
   {
-    "categories": [
-      "cost"
-    ],
-    "product": "semaglutide",
-    "evidence": "rwe",
-    "lives": 9,
-    "authors": [
+    _id: '59a734d2bf8502ec58e4ae6e',
+    title: 'velit culpa occaecat nostrud cillum',
+    authors: [
       {
-        "name": "Ruth Fields"
+        name: 'Lorena Taylor'
       },
       {
-        "name": "Kristine Kramer"
+        name: 'Patricia Schmidt'
       }
     ],
-    "title": "exercitation voluptate voluptate amet cupidatat",
-    "_id": "59a6dab26ab8d31491e8fbaa"
+    lives: 5,
+    evidence: 'rwe',
+    product: 'liraglutide',
+    categories: ['burden-of-disease']
   },
   {
-    "categories": [
-      "comparitive-effectiveness"
-    ],
-    "product": "semaglutide",
-    "evidence": "rwe",
-    "lives": 5,
-    "authors": [
+    _id: '59a734d29e9c9d3279ed8db3',
+    title: 'id nisi qui eiusmod laboris',
+    authors: [
       {
-        "name": "Cara Bernard"
+        name: 'Sasha Pope'
       },
       {
-        "name": "Delores Parker"
+        name: 'Gilliam Terry'
       }
     ],
-    "title": "sunt ipsum incididunt eiusmod occaecat",
-    "_id": "59a6dab2a2307d7825d160d9"
+    lives: 9,
+    evidence: 'rwe',
+    product: 'liraglutide',
+    categories: ['long-term-studies']
   },
   {
-    "categories": [
-      "sub-population"
-    ],
-    "product": "semaglutide",
-    "evidence": "clinical-trials",
-    "lives": 9,
-    "authors": [
+    _id: '59a734d29b2f5642e32fdec2',
+    title: 'Lorem officia nostrud sunt ea',
+    authors: [
       {
-        "name": "Knight Tyler"
+        name: 'Olsen Byrd'
       },
       {
-        "name": "Minerva Buckley"
+        name: 'Stanley Daniel'
       }
     ],
-    "title": "excepteur et ad Lorem quis",
-    "_id": "59a6dab28b397a9a6e1da230"
+    lives: 5,
+    evidence: 'clinical-trials',
+    product: 'liraglutide',
+    categories: ['adherence-persistence']
   },
   {
-    "categories": [
-      "burden-of-disease"
-    ],
-    "product": "liraglutide",
-    "evidence": "clinical-trials",
-    "lives": 4,
-    "authors": [
+    _id: '59a734d2b326d4807b81cffd',
+    title: 'proident non dolor consectetur dolore',
+    authors: [
       {
-        "name": "Moody Strickland"
+        name: 'Benjamin Mcclure'
       },
       {
-        "name": "Jessie Strong"
+        name: 'Malinda Griffith'
       }
     ],
-    "title": "commodo cupidatat est veniam dolore",
-    "_id": "59a6dab27184f4a7644114ee"
+    lives: 2,
+    evidence: 'clinical-trials',
+    product: 'liraglutide',
+    categories: ['meta-analysis']
   },
   {
-    "categories": [
-      "short-term-studies"
-    ],
-    "product": "semaglutide",
-    "evidence": "clinical-trials",
-    "lives": 6,
-    "authors": [
+    _id: '59a734d26ae844f1a2099d86',
+    title: 'et proident ullamco occaecat deserunt',
+    authors: [
       {
-        "name": "Bass Roach"
+        name: 'Lee Silva'
       },
       {
-        "name": "Rowe Knox"
+        name: 'Conrad House'
       }
     ],
-    "title": "ipsum ipsum officia ipsum officia",
-    "_id": "59a6dab2e311789193416da8"
+    lives: 2,
+    evidence: 'clinical-trials',
+    product: 'liraglutide',
+    categories: ['comparitive-effectiveness']
   },
   {
-    "categories": [
-      "cost"
-    ],
-    "product": "semaglutide",
-    "evidence": "rwe",
-    "lives": 9,
-    "authors": [
+    _id: '59a734d2ede03a22c1cf3f5a',
+    title: 'qui anim sit commodo eu',
+    authors: [
       {
-        "name": "Ericka Kelly"
+        name: 'West Carney'
       },
       {
-        "name": "Salazar Cohen"
+        name: 'Eula Freeman'
       }
     ],
-    "title": "ad ad voluptate laboris ea",
-    "_id": "59a6dab26b1206f708788f1a"
+    lives: 9,
+    evidence: 'rwe',
+    product: 'liraglutide',
+    categories: ['epidemiology']
   },
   {
-    "categories": [
-      "adherence-persistence"
-    ],
-    "product": "semaglutide",
-    "evidence": "clinical-trials",
-    "lives": 1,
-    "authors": [
+    _id: '59a734d299b1de070bbf2df1',
+    title: 'ex veniam minim velit ipsum',
+    authors: [
       {
-        "name": "Henry Summers"
+        name: 'Buckner Rios'
       },
       {
-        "name": "Nichols Hyde"
+        name: 'Walker Bradford'
       }
     ],
-    "title": "amet incididunt occaecat consectetur ex",
-    "_id": "59a6dab2f94611f66b82f8d7"
+    lives: 1,
+    evidence: 'clinical-trials',
+    product: 'liraglutide',
+    categories: ['AIC']
   },
   {
-    "categories": [
-      "burden-of-disease"
-    ],
-    "product": "semaglutide",
-    "evidence": "clinical-trials",
-    "lives": 4,
-    "authors": [
+    _id: '59a734d2294bde3b1c0dd048',
+    title: 'laborum consectetur Lorem aliqua incididunt',
+    authors: [
       {
-        "name": "Natasha Nelson"
+        name: 'Dominguez Carson'
       },
       {
-        "name": "Melinda Gillespie"
+        name: 'Joyner Sellers'
       }
     ],
-    "title": "aliquip proident ex elit dolor",
-    "_id": "59a6dab2aba32a128cb12871"
+    lives: 6,
+    evidence: 'rwe',
+    product: 'liraglutide',
+    categories: ['burden-of-disease']
   },
   {
-    "categories": [
-      "short-term-studies"
-    ],
-    "product": "liraglutide",
-    "evidence": "rwe",
-    "lives": 6,
-    "authors": [
+    _id: '59a734d270ea29e0050a486e',
+    title: 'ad nisi anim sunt velit',
+    authors: [
       {
-        "name": "Nolan Wilkins"
+        name: 'Hewitt Cobb'
       },
       {
-        "name": "Boyle Dillon"
+        name: 'Lawanda Ortiz'
       }
     ],
-    "title": "aute sint nostrud non reprehenderit",
-    "_id": "59a6dab2cf2389a3e637ae56"
+    lives: 3,
+    evidence: 'rwe',
+    product: 'liraglutide',
+    categories: ['cardio-vascular']
   },
   {
-    "categories": [
-      "epidemiology"
-    ],
-    "product": "liraglutide",
-    "evidence": "clinical-trials",
-    "lives": 9,
-    "authors": [
+    _id: '59a734d2ef28882313c276f8',
+    title: 'nisi excepteur do in nostrud',
+    authors: [
       {
-        "name": "Eddie Ortega"
+        name: 'Pacheco Whitaker'
       },
       {
-        "name": "Ortega Welch"
+        name: 'Buckley Rodriquez'
       }
     ],
-    "title": "amet mollit labore qui laborum",
-    "_id": "59a6dab2a7ef22fb707ec400"
+    lives: 4,
+    evidence: 'clinical-trials',
+    product: 'liraglutide',
+    categories: ['cost']
   },
   {
-    "categories": [
-      "AIC"
-    ],
-    "product": "liraglutide",
-    "evidence": "rwe",
-    "lives": 2,
-    "authors": [
+    _id: '59a734d2d9a97b4857b29675',
+    title: 'mollit laboris esse cupidatat reprehenderit',
+    authors: [
       {
-        "name": "Lucy Velazquez"
+        name: 'Mai Hooper'
       },
       {
-        "name": "Mcgowan Valencia"
+        name: 'Kirk Rollins'
       }
     ],
-    "title": "elit ut qui quis irure",
-    "_id": "59a6dab265ddbd5b9fcb791a"
+    lives: 8,
+    evidence: 'clinical-trials',
+    product: 'liraglutide',
+    categories: ['meta-analysis']
   },
   {
-    "categories": [
-      "epidemiology"
-    ],
-    "product": "semaglutide",
-    "evidence": "rwe",
-    "lives": 3,
-    "authors": [
+    _id: '59a734d2e8bc231882cae4d7',
+    title: 'non anim dolor ea amet',
+    authors: [
       {
-        "name": "Richards Cobb"
+        name: 'Augusta Cooper'
       },
       {
-        "name": "Hardin Andrews"
+        name: 'Adkins Randolph'
       }
     ],
-    "title": "duis ex eiusmod ad pariatur",
-    "_id": "59a6dab2efcb109d8cfc4dbb"
+    lives: 6,
+    evidence: 'rwe',
+    product: 'liraglutide',
+    categories: ['adherence-persistence']
   },
   {
-    "categories": [
-      "burden-of-disease"
-    ],
-    "product": "semaglutide",
-    "evidence": "clinical-trials",
-    "lives": 4,
-    "authors": [
+    _id: '59a734d20bc621666bd178c1',
+    title: 'proident amet ad anim ad',
+    authors: [
       {
-        "name": "Bernadine Chapman"
+        name: 'Maria Peters'
       },
       {
-        "name": "Hudson Gomez"
+        name: 'Gould Carlson'
       }
     ],
-    "title": "ipsum adipisicing irure dolore culpa",
-    "_id": "59a6dab2843cc5cdfa8c9302"
+    lives: 3,
+    evidence: 'clinical-trials',
+    product: 'liraglutide',
+    categories: ['comparitive-effectiveness']
   },
   {
-    "categories": [
-      "sub-population"
-    ],
-    "product": "semaglutide",
-    "evidence": "clinical-trials",
-    "lives": 5,
-    "authors": [
+    _id: '59a734d26ddc555064e7c018',
+    title: 'deserunt nulla do exercitation incididunt',
+    authors: [
       {
-        "name": "Lana Atkinson"
+        name: 'Maldonado Goodwin'
       },
       {
-        "name": "Georgette Casey"
+        name: 'Ora Clements'
       }
     ],
-    "title": "officia reprehenderit ad voluptate ea",
-    "_id": "59a6dab28675ce654a241f69"
+    lives: 1,
+    evidence: 'clinical-trials',
+    product: 'liraglutide',
+    categories: ['long-term-studies']
   },
   {
-    "categories": [
-      "weight-change"
-    ],
-    "product": "semaglutide",
-    "evidence": "clinical-trials",
-    "lives": 7,
-    "authors": [
+    _id: '59a734d2e133fe4183fb9de9',
+    title: 'laborum officia quis veniam enim',
+    authors: [
       {
-        "name": "Flossie Pratt"
+        name: 'Viola Osborne'
       },
       {
-        "name": "Farmer Austin"
+        name: 'Krista Finley'
       }
     ],
-    "title": "eiusmod velit consectetur laborum eu",
-    "_id": "59a6dab2b9928a5ab7985c9e"
+    lives: 9,
+    evidence: 'clinical-trials',
+    product: 'liraglutide',
+    categories: ['AIC']
   },
   {
-    "categories": [
-      "cardio-vascular"
-    ],
-    "product": "liraglutide",
-    "evidence": "rwe",
-    "lives": 1,
-    "authors": [
+    _id: '59a734d24c72542cf3b12099',
+    title: 'id adipisicing amet et eu',
+    authors: [
       {
-        "name": "Adeline Mullins"
+        name: 'Armstrong Hardy'
       },
       {
-        "name": "Humphrey Johns"
+        name: 'Elliott Lynn'
       }
     ],
-    "title": "fugiat consequat excepteur tempor id",
-    "_id": "59a6dab28aab0d3fc96472c2"
+    lives: 6,
+    evidence: 'rwe',
+    product: 'liraglutide',
+    categories: ['burden-of-disease']
   },
   {
-    "categories": [
-      "meta-analysis"
-    ],
-    "product": "semaglutide",
-    "evidence": "rwe",
-    "lives": 8,
-    "authors": [
+    _id: '59a734d2c72015be8d251a0e',
+    title: 'ullamco aute amet aliquip ex',
+    authors: [
       {
-        "name": "Anthony Sears"
+        name: 'Beach Booth'
       },
       {
-        "name": "Lily Stout"
+        name: 'Durham Bridges'
       }
     ],
-    "title": "veniam ullamco voluptate est ipsum",
-    "_id": "59a6dab297ae5201d8475410"
+    lives: 7,
+    evidence: 'rwe',
+    product: 'liraglutide',
+    categories: ['short-term-studies']
   },
   {
-    "categories": [
-      "weight-change"
-    ],
-    "product": "liraglutide",
-    "evidence": "clinical-trials",
-    "lives": 8,
-    "authors": [
+    _id: '59a734d29b3ba6a0dade95c8',
+    title: 'aute elit excepteur deserunt velit',
+    authors: [
       {
-        "name": "Belinda Huff"
+        name: 'Flynn Beasley'
       },
       {
-        "name": "Briana Castaneda"
+        name: 'Simone Hayden'
       }
     ],
-    "title": "reprehenderit eiusmod aliqua eu excepteur",
-    "_id": "59a6dab234182d87a8344dde"
+    lives: 3,
+    evidence: 'rwe',
+    product: 'liraglutide',
+    categories: ['adherence-persistence']
   },
   {
-    "categories": [
-      "comparitive-effectiveness"
-    ],
-    "product": "semaglutide",
-    "evidence": "clinical-trials",
-    "lives": 8,
-    "authors": [
+    _id: '59a734d2ebb5f4822fd55c5a',
+    title: 'adipisicing pariatur sunt occaecat est',
+    authors: [
       {
-        "name": "Middleton Camacho"
+        name: 'Franklin Carroll'
       },
       {
-        "name": "Glover Steele"
+        name: 'Katheryn Fields'
       }
     ],
-    "title": "anim ex non elit et",
-    "_id": "59a6dab2378f480d82cff4c0"
+    lives: 4,
+    evidence: 'clinical-trials',
+    product: 'liraglutide',
+    categories: ['burden-of-disease']
   },
   {
-    "categories": [
-      "epidemiology"
-    ],
-    "product": "semaglutide",
-    "evidence": "rwe",
-    "lives": 1,
-    "authors": [
+    _id: '59a734d2d6da33f1d7dd11fc',
+    title: 'ea Lorem sint cupidatat non',
+    authors: [
       {
-        "name": "Fitzpatrick Parsons"
+        name: 'Kennedy Wise'
       },
       {
-        "name": "Greta Downs"
+        name: 'Harriett Chapman'
       }
     ],
-    "title": "tempor elit sunt eiusmod amet",
-    "_id": "59a6dab2591a854a74c3e41a"
+    lives: 4,
+    evidence: 'rwe',
+    product: 'liraglutide',
+    categories: ['health-economic-evaluation']
   },
   {
-    "categories": [
-      "cost"
-    ],
-    "product": "liraglutide",
-    "evidence": "rwe",
-    "lives": 6,
-    "authors": [
+    _id: '59a734d203df0d38258b634f',
+    title: 'nisi in occaecat eiusmod minim',
+    authors: [
       {
-        "name": "Bennett Dominguez"
+        name: 'Simon Norman'
       },
       {
-        "name": "Maritza Duffy"
+        name: 'Dean Garza'
       }
     ],
-    "title": "culpa elit sit occaecat officia",
-    "_id": "59a6dab28f74acd991e0d205"
+    lives: 7,
+    evidence: 'rwe',
+    product: 'liraglutide',
+    categories: ['short-term-studies']
   },
   {
-    "categories": [
-      "hypoglycemia"
-    ],
-    "product": "semaglutide",
-    "evidence": "rwe",
-    "lives": 6,
-    "authors": [
+    _id: '59a734d2fcfb263285c50498',
+    title: 'do consectetur ea irure aliquip',
+    authors: [
       {
-        "name": "Byers Mckee"
+        name: 'Oneill Wynn'
       },
       {
-        "name": "Janie Baxter"
+        name: 'Kirby Riddle'
       }
     ],
-    "title": "sint excepteur deserunt eu eu",
-    "_id": "59a6dab22d752e8d45f3edf0"
+    lives: 7,
+    evidence: 'clinical-trials',
+    product: 'liraglutide',
+    categories: ['long-term-studies']
   },
   {
-    "categories": [
-      "sub-population"
-    ],
-    "product": "liraglutide",
-    "evidence": "clinical-trials",
-    "lives": 4,
-    "authors": [
+    _id: '59a734d24df59bf02839a3a0',
+    title: 'tempor fugiat voluptate non ipsum',
+    authors: [
       {
-        "name": "Warren Wagner"
+        name: 'Johnston Singleton'
       },
       {
-        "name": "Tonia Garner"
+        name: 'Emilia Bruce'
       }
     ],
-    "title": "aliqua sint esse do proident",
-    "_id": "59a6dab2ed45ca3a9e320280"
+    lives: 5,
+    evidence: 'rwe',
+    product: 'liraglutide',
+    categories: ['adherence-persistence']
   },
   {
-    "categories": [
-      "adherence-persistence"
-    ],
-    "product": "liraglutide",
-    "evidence": "clinical-trials",
-    "lives": 9,
-    "authors": [
+    _id: '59a734d24b39cba4c0821900',
+    title: 'labore in duis adipisicing amet',
+    authors: [
       {
-        "name": "Valdez Clark"
+        name: 'Clark Mcneil'
       },
       {
-        "name": "Kristina Blake"
+        name: 'Alford Phillips'
       }
     ],
-    "title": "nostrud tempor et enim tempor",
-    "_id": "59a6dab2280c18969d9eed70"
+    lives: 1,
+    evidence: 'clinical-trials',
+    product: 'liraglutide',
+    categories: ['meta-analysis']
   },
   {
-    "categories": [
-      "cost"
-    ],
-    "product": "semaglutide",
-    "evidence": "clinical-trials",
-    "lives": 5,
-    "authors": [
+    _id: '59a734d29eaa99b415d2c896',
+    title: 'anim nulla in Lorem nulla',
+    authors: [
       {
-        "name": "Leon Brooks"
+        name: 'Liliana Dorsey'
       },
       {
-        "name": "Shawna Mclaughlin"
+        name: 'Silvia Mcintosh'
       }
     ],
-    "title": "anim voluptate quis tempor qui",
-    "_id": "59a6dab243ddc0de5ce783b2"
+    lives: 9,
+    evidence: 'clinical-trials',
+    product: 'liraglutide',
+    categories: ['sub-population']
   },
   {
-    "categories": [
-      "short-term-studies"
-    ],
-    "product": "liraglutide",
-    "evidence": "rwe",
-    "lives": 3,
-    "authors": [
+    _id: '59a734d288ff8bcf5df507a4',
+    title: 'et enim eu eiusmod deserunt',
+    authors: [
       {
-        "name": "Cecilia Soto"
+        name: 'Joanna Hamilton'
       },
       {
-        "name": "Whitfield Mckay"
+        name: 'Debbie Conley'
       }
     ],
-    "title": "magna culpa Lorem sunt dolor",
-    "_id": "59a6dab277cfef39fd06d4f7"
+    lives: 9,
+    evidence: 'rwe',
+    product: 'semaglutide',
+    categories: ['short-term-studies']
   },
   {
-    "categories": [
-      "burden-of-disease"
-    ],
-    "product": "liraglutide",
-    "evidence": "clinical-trials",
-    "lives": 8,
-    "authors": [
+    _id: '59a734d2f7b1bcbe79ba1003',
+    title: 'deserunt aliquip non excepteur laboris',
+    authors: [
       {
-        "name": "Lottie Golden"
+        name: 'Mcdonald Mckay'
       },
       {
-        "name": "Graves Malone"
+        name: 'Maryellen Cochran'
       }
     ],
-    "title": "veniam occaecat dolor consequat amet",
-    "_id": "59a6dab2647df11412c8c287"
+    lives: 6,
+    evidence: 'clinical-trials',
+    product: 'semaglutide',
+    categories: ['weight-change']
   },
   {
-    "categories": [
-      "hypoglycemia"
-    ],
-    "product": "liraglutide",
-    "evidence": "rwe",
-    "lives": 4,
-    "authors": [
+    _id: '59a734d2a2f2b9d59cbe3273',
+    title: 'sit qui minim laboris consectetur',
+    authors: [
       {
-        "name": "Kaye Grimes"
+        name: 'Beatriz Clay'
       },
       {
-        "name": "Hardy Sweeney"
+        name: 'Janelle Mason'
       }
     ],
-    "title": "dolor eiusmod enim pariatur enim",
-    "_id": "59a6dab264118366d63780bb"
+    lives: 4,
+    evidence: 'clinical-trials',
+    product: 'liraglutide',
+    categories: ['comparitive-effectiveness']
   },
   {
-    "categories": [
-      "epidemiology"
-    ],
-    "product": "liraglutide",
-    "evidence": "clinical-trials",
-    "lives": 7,
-    "authors": [
+    _id: '59a734d2d7b27297b42b0d40',
+    title: 'tempor et voluptate et culpa',
+    authors: [
       {
-        "name": "Sara Reese"
+        name: 'Rena Logan'
       },
       {
-        "name": "Christina Franklin"
+        name: 'Whitley Roberson'
       }
     ],
-    "title": "cillum minim voluptate cupidatat dolor",
-    "_id": "59a6dab2e44fef7cfdb18b1d"
+    lives: 1,
+    evidence: 'rwe',
+    product: 'liraglutide',
+    categories: ['comparitive-effectiveness']
   },
   {
-    "categories": [
-      "short-term-studies"
-    ],
-    "product": "semaglutide",
-    "evidence": "rwe",
-    "lives": 7,
-    "authors": [
+    _id: '59a734d246207d6c598cfd5e',
+    title: 'culpa quis qui irure labore',
+    authors: [
       {
-        "name": "Parker Carlson"
+        name: 'Casandra Madden'
       },
       {
-        "name": "Robinson Cote"
+        name: 'Callahan Odonnell'
       }
     ],
-    "title": "ex excepteur deserunt fugiat incididunt",
-    "_id": "59a6dab2bb5ae39d95fd0d0b"
+    lives: 4,
+    evidence: 'clinical-trials',
+    product: 'liraglutide',
+    categories: ['hypoglycemia']
   },
   {
-    "categories": [
-      "weight-change"
-    ],
-    "product": "liraglutide",
-    "evidence": "rwe",
-    "lives": 1,
-    "authors": [
+    _id: '59a734d2805df9a05ddae24f',
+    title: 'et do voluptate nulla ex',
+    authors: [
       {
-        "name": "Kerr Moody"
+        name: 'Vazquez Garrison'
       },
       {
-        "name": "Sonja Francis"
+        name: 'Lula Anthony'
       }
     ],
-    "title": "adipisicing magna id nulla culpa",
-    "_id": "59a6dab249621970e73f9492"
+    lives: 9,
+    evidence: 'rwe',
+    product: 'semaglutide',
+    categories: ['cardio-vascular']
   },
   {
-    "categories": [
-      "sub-population"
-    ],
-    "product": "liraglutide",
-    "evidence": "clinical-trials",
-    "lives": 9,
-    "authors": [
+    _id: '59a734d205ac442c222b264a',
+    title: 'id minim id dolor nisi',
+    authors: [
       {
-        "name": "Miller Gaines"
+        name: 'Hodges Carter'
       },
       {
-        "name": "Bond Long"
+        name: 'Patel Pittman'
       }
     ],
-    "title": "eu aliqua commodo ea occaecat",
-    "_id": "59a6dab282b1eeec126048e4"
+    lives: 3,
+    evidence: 'rwe',
+    product: 'liraglutide',
+    categories: ['AIC']
   },
   {
-    "categories": [
-      "health-economic-evaluation"
-    ],
-    "product": "semaglutide",
-    "evidence": "clinical-trials",
-    "lives": 2,
-    "authors": [
+    _id: '59a734d27993a85320beba83',
+    title: 'reprehenderit ex ad laborum consequat',
+    authors: [
       {
-        "name": "Oneal Hawkins"
+        name: 'Lester Coffey'
       },
       {
-        "name": "Chrystal Mccarthy"
+        name: 'Baker Atkinson'
       }
     ],
-    "title": "exercitation Lorem incididunt proident incididunt",
-    "_id": "59a6dab247f83bec0fade8f4"
+    lives: 2,
+    evidence: 'clinical-trials',
+    product: 'semaglutide',
+    categories: ['health-economic-evaluation']
   },
   {
-    "categories": [
-      "comparitive-effectiveness"
-    ],
-    "product": "semaglutide",
-    "evidence": "clinical-trials",
-    "lives": 7,
-    "authors": [
+    _id: '59a734d25540f69bb353c099',
+    title: 'nisi in mollit mollit irure',
+    authors: [
       {
-        "name": "Janelle Harrington"
+        name: 'Graham Manning'
       },
       {
-        "name": "Dianne Mills"
+        name: 'Hamilton Bond'
       }
     ],
-    "title": "est aute nulla esse ipsum",
-    "_id": "59a6dab20eddf25fa86c1f73"
+    lives: 6,
+    evidence: 'rwe',
+    product: 'liraglutide',
+    categories: ['burden-of-disease']
   },
   {
-    "categories": [
-      "meta-analysis"
-    ],
-    "product": "liraglutide",
-    "evidence": "rwe",
-    "lives": 6,
-    "authors": [
+    _id: '59a734d25668b831ee1adba3',
+    title: 'ipsum ea pariatur nostrud do',
+    authors: [
       {
-        "name": "Lorrie Solomon"
+        name: 'Tonia Wilkinson'
       },
       {
-        "name": "Stokes Nielsen"
+        name: 'Constance Fletcher'
       }
     ],
-    "title": "anim proident excepteur non occaecat",
-    "_id": "59a6dab2ae3ba6a789f440d7"
+    lives: 5,
+    evidence: 'rwe',
+    product: 'semaglutide',
+    categories: ['cost']
   },
   {
-    "categories": [
-      "cardio-vascular"
-    ],
-    "product": "liraglutide",
-    "evidence": "clinical-trials",
-    "lives": 4,
-    "authors": [
+    _id: '59a734d205815248fb9e2dc6',
+    title: 'occaecat esse exercitation elit sint',
+    authors: [
       {
-        "name": "Mcneil Ewing"
+        name: 'Todd Mccarty'
       },
       {
-        "name": "Ollie Deleon"
+        name: 'Knox York'
       }
     ],
-    "title": "labore nulla proident est dolor",
-    "_id": "59a6dab2bf4fe90486bed4a5"
+    lives: 5,
+    evidence: 'clinical-trials',
+    product: 'semaglutide',
+    categories: ['hypoglycemia']
   },
   {
-    "categories": [
-      "comparitive-effectiveness"
-    ],
-    "product": "liraglutide",
-    "evidence": "rwe",
-    "lives": 7,
-    "authors": [
+    _id: '59a734d2578d00e0fed6506e',
+    title: 'pariatur occaecat ipsum dolor amet',
+    authors: [
       {
-        "name": "Saunders Daniels"
+        name: 'Kerri Benson'
       },
       {
-        "name": "Marquita Wells"
+        name: 'Weeks Holden'
       }
     ],
-    "title": "cupidatat reprehenderit enim fugiat ut",
-    "_id": "59a6dab28508c63b0ec70118"
+    lives: 8,
+    evidence: 'rwe',
+    product: 'liraglutide',
+    categories: ['cost']
   },
   {
-    "categories": [
-      "meta-analysis"
-    ],
-    "product": "semaglutide",
-    "evidence": "clinical-trials",
-    "lives": 9,
-    "authors": [
+    _id: '59a734d2bad6715d1c9dfe05',
+    title: 'ex in dolor cillum et',
+    authors: [
       {
-        "name": "Harrington Rodriguez"
+        name: 'Hooper Chen'
       },
       {
-        "name": "Hughes Jenkins"
+        name: 'Clarice Huber'
       }
     ],
-    "title": "mollit nulla veniam cupidatat fugiat",
-    "_id": "59a6dab26cf872f53bc579e4"
+    lives: 6,
+    evidence: 'clinical-trials',
+    product: 'liraglutide',
+    categories: ['epidemiology']
   },
   {
-    "categories": [
-      "adherence-persistence"
-    ],
-    "product": "semaglutide",
-    "evidence": "rwe",
-    "lives": 8,
-    "authors": [
+    _id: '59a734d28a8c251c7dd31c5a',
+    title: 'nisi consectetur labore in voluptate',
+    authors: [
       {
-        "name": "Casey Weber"
+        name: 'Henrietta Stephenson'
       },
       {
-        "name": "Kristi Christensen"
+        name: 'Pennington Moses'
       }
     ],
-    "title": "qui sunt officia nulla ad",
-    "_id": "59a6dab2d955087d756e1241"
+    lives: 6,
+    evidence: 'rwe',
+    product: 'liraglutide',
+    categories: ['long-term-studies']
   },
   {
-    "categories": [
-      "sub-population"
-    ],
-    "product": "liraglutide",
-    "evidence": "clinical-trials",
-    "lives": 5,
-    "authors": [
+    _id: '59a734d26dd0fe5c92d69172',
+    title: 'tempor cillum nostrud laborum quis',
+    authors: [
       {
-        "name": "Houston Jacobson"
+        name: 'Lisa Jenkins'
       },
       {
-        "name": "Hurley Crane"
+        name: 'Matthews Evans'
       }
     ],
-    "title": "est incididunt et consectetur ad",
-    "_id": "59a6dab288a12d612ac875be"
+    lives: 9,
+    evidence: 'clinical-trials',
+    product: 'liraglutide',
+    categories: ['long-term-studies']
   },
   {
-    "categories": [
-      "adherence-persistence"
-    ],
-    "product": "semaglutide",
-    "evidence": "rwe",
-    "lives": 3,
-    "authors": [
+    _id: '59a734d2a4b27e6bcaf187c3',
+    title: 'laborum dolor amet irure tempor',
+    authors: [
       {
-        "name": "Figueroa Rosario"
+        name: 'Cardenas Baldwin'
       },
       {
-        "name": "Cherry Stafford"
+        name: 'Katina Lara'
       }
     ],
-    "title": "cillum proident excepteur est anim",
-    "_id": "59a6dab201f4d2063b4ec9e1"
+    lives: 1,
+    evidence: 'clinical-trials',
+    product: 'liraglutide',
+    categories: ['cost']
   },
   {
-    "categories": [
-      "short-term-studies"
-    ],
-    "product": "semaglutide",
-    "evidence": "rwe",
-    "lives": 3,
-    "authors": [
+    _id: '59a734d2599b05e0c0025611',
+    title: 'dolor voluptate sunt dolore reprehenderit',
+    authors: [
       {
-        "name": "Mona Lowery"
+        name: 'Cathryn Rivera'
       },
       {
-        "name": "Cathryn Holcomb"
+        name: 'Jefferson Vasquez'
       }
     ],
-    "title": "consequat id ea duis cillum",
-    "_id": "59a6dab2211e03a252d712d3"
+    lives: 5,
+    evidence: 'rwe',
+    product: 'liraglutide',
+    categories: ['weight-change']
   },
   {
-    "categories": [
-      "sub-population"
-    ],
-    "product": "semaglutide",
-    "evidence": "rwe",
-    "lives": 6,
-    "authors": [
+    _id: '59a734d2d1684360817a4848',
+    title: 'enim deserunt minim elit eiusmod',
+    authors: [
       {
-        "name": "Bessie Acosta"
+        name: 'Hollie Garcia'
       },
       {
-        "name": "Castillo Hahn"
+        name: 'Shelia Valenzuela'
       }
     ],
-    "title": "voluptate consequat exercitation cillum in",
-    "_id": "59a6dab28babd1da09fae34a"
+    lives: 4,
+    evidence: 'clinical-trials',
+    product: 'liraglutide',
+    categories: ['sub-population']
   }
 ];

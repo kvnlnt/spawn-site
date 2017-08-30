@@ -416,8 +416,7 @@ class EvidenceFinder {
       if (
         ['rwe', 'clinical-trials', 'liraglutide', 'semaglutide'].indexOf(
           x.id
-        ) === -1 &&
-        filtersApplied.indexOf(x.id) === -1
+        ) === -1
       ) {
         if (circlesToShow.indexOf(x.id) === -1 && !noFilter) {
           circlesToFilterOut.push(x);
