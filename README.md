@@ -9,17 +9,18 @@ http://beta.json-generator.com/EJzLusAdQ
       title: '{{lorem(5, "words")}}',
       authors: [
         {
-          'repeat(3)': {
+          'repeat(2)': {
             name: '{{firstName()}} {{surname()}}'
           }
         }
       ],
+      lives:'{{random(1,2,3,4,5,6,7,8,9)}}',
       evidence: '{{random("clinical-trials", "rwe")}}',
       product: '{{random("liraglutide", "semaglutide")}}',
       categories: 
       [
         {
-          'repeat(3)':  '{{random("weight-change", "burden-of-disease", "hypoglycemia", "sub-population", "health-economic-evaluation", "meta-analysis", "cost", "cardio-vascular", "adherence-persistence", "short-term-studies", "comparitive-effectiveness", "long-term-studies", "AIC", "epidemiology")}}'
+          'repeat(1)':  '{{random("weight-change", "burden-of-disease", "hypoglycemia", "sub-population", "health-economic-evaluation", "meta-analysis", "cost", "cardio-vascular", "adherence-persistence", "short-term-studies", "comparitive-effectiveness", "long-term-studies", "AIC", "epidemiology")}}'
         }
       ]
     }

@@ -4,7 +4,7 @@ const FILTER_TYPES = {
   CATEGORY: 'filter-category'
 };
 
-const TARGETS = [
+const TARGETS_DESKTOP = [
   { x: 602, y: 149 },
   { x: 515, y: 252 },
   { x: 649, y: 279 },
@@ -24,6 +24,32 @@ const TARGETS = [
   { x: 450, y: 623 },
   { x: 579, y: 673 }
 ];
+
+const TARGETS_MOBILE = [
+  { x: 400, y: 134 },
+  { x: 335, y: 225 },
+  { x: 512, y: 160 },
+  { x: 442, y: 243 },
+  { x: 263, y: 321 },
+  { x: 371, y: 326 },
+  { x: 550, y: 264 },
+  { x: 319, y: 419 },
+  { x: 476, y: 348 },
+  { x: 420, y: 443 },
+  { x: 582, y: 367 },
+  { x: 526, y: 459 },
+  { x: 265, y: 511 },
+  { x: 367, y: 543 },
+  { x: 475, y: 556 },
+  { x: 585, y: 550 },
+  { x: 412, y: 644 },
+  { x: 535, y: 651 }
+];
+
+const MODE = {
+  DESKTOP: 'DESKTOP',
+  MOBILE: 'MOBILE'
+};
 
 const CIRCLES = [
   {
@@ -129,6 +155,7 @@ class Circle {
     this.size = 130;
     this.radius = 50;
     this.showing = true;
+    this.mode = MODE.DESKTOP;
     this.x = 0;
     this.y = 0;
     this.el = this.createEl();
@@ -136,16 +163,26 @@ class Circle {
     // reg events
     this.el.addEventListener('click', this.handleClick.bind(this));
   }
+  changeModeTo(mode) {
+    this.mode = mode;
+    if (mode === MODE.DESKTOP) {
+      this.el.classList.remove('circle--mobile');
+      this.el.classList.add('circle--desktop');
+    } else {
+      this.el.classList.remove('circle--desktop');
+      this.el.classList.add('circle--mobile');
+    }
+  }
   createEl() {
     // circle
     var c = document.createElement('div');
     c.classList.add('circle');
     c.classList.add('circle--showing');
+    c.classList.add(
+      this.mode === MODE.DESKTOP ? 'circle--desktop' : 'circle--mobile'
+    );
     c.classList.add(this.filterType);
     c.id = this.id;
-    c.style.width = this.size + 'px';
-    c.style.height = this.size + 'px';
-    c.style.lineHeight = this.size + 'px';
     c.style.left = this.x + 'px';
     c.style.top = this.y + 'px';
     c.style.borderRadius = this.size + 'px';
@@ -197,6 +234,7 @@ class Circle {
   }
   hide() {
     this.el.classList.remove('circle--showing');
+    let that = this;
     var bounce = new Bounce();
     bounce
       .scale({
@@ -237,6 +275,15 @@ class Circle {
         stiffness: 4
       })
       .applyTo(this.el);
+
+    var bounce = new Bounce();
+    // bounce
+    //   .rotate({
+    //     from: 0,
+    //     to: 315,
+    //     duration: 1000
+    //   })
+    //   .applyTo(this.el.querySelector('.circle__checkmark'));
   }
   toggleSelected() {
     this.selected = !this.selected;
@@ -256,7 +303,11 @@ class EvidenceFinder {
     this.height = 960;
     this.circles = CIRCLES.map(a => new Circle(a, this));
     this.packCircles();
+    this.mode = MODE.DESKTOP;
     this.filter();
+    document
+      .querySelector('#ViewArticles')
+      .addEventListener('click', this.toggleMode.bind(this));
   }
   checkCollision(circle1, circle2) {
     let dx = Math.ceil(circle1.x - circle2.x);
@@ -343,7 +394,9 @@ class EvidenceFinder {
       }
     });
 
-    let reassignTargets = _.slice(TARGETS, 4, 4 + circlesToFilterIn.length);
+    let targets = this.mode === MODE.DESKTOP ? TARGETS_DESKTOP : TARGETS_MOBILE;
+
+    let reassignTargets = _.slice(targets, 4, 4 + circlesToFilterIn.length);
 
     let ti = 0;
     circlesToFilterIn.forEach((x, i) => {
@@ -382,7 +435,9 @@ class EvidenceFinder {
     let that = this;
     this.circles.forEach((x, i) => {
       setTimeout(() => {
-        x.move(TARGETS[i].x, TARGETS[i].y).renderToDom();
+        let targets =
+          that.mode === MODE.DESKTOP ? TARGETS_DESKTOP : TARGETS_MOBILE;
+        x.move(targets[i].x, targets[i].y).renderToDom();
       }, _.random(0, 500));
       var bounce = new Bounce();
       bounce
@@ -411,6 +466,30 @@ class EvidenceFinder {
     let xDiff = circle1.x - circle2.x;
     let yDiff = circle1.y - circle2.y;
     circle2.move(xDiff, yDiff);
+  }
+  toggleMode() {
+    this.mode = this.mode === MODE.DESKTOP ? MODE.MOBILE : MODE.DESKTOP;
+    this.mode === MODE.DESKTOP
+      ? this.transitionToDesktop()
+      : this.transitionToMobile();
+  }
+  transitionToDesktop() {
+    let i = 0;
+    this.circles.forEach(x => {
+      x.changeModeTo(MODE.DESKTOP);
+      x.move(TARGETS_DESKTOP[i].x, TARGETS_DESKTOP[i].y);
+      i += 1;
+    });
+    this.filter();
+  }
+  transitionToMobile() {
+    let i = 0;
+    this.circles.forEach(x => {
+      x.changeModeTo(MODE.MOBILE);
+      x.move(TARGETS_MOBILE[i].x, TARGETS_MOBILE[i].y);
+      i += 1;
+    });
+    this.filter();
   }
 }
 
