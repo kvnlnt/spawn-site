@@ -19,9 +19,9 @@ function init() {
     $('canvas').remove();
 
     cancelAnimationFrame(idRAF);
-    let width = $(window).width();
-    let height = $(window).height();
-    let offset = 200;
+    let width = 800;
+    let height = 600;
+    let offset = 100;
     // module aliases
 
     engine.events = {};
@@ -62,14 +62,28 @@ function init() {
         }
     });
 
+    let topRightCorner = Bodies.polygon(650, offset, 3, 200, {
+        isStatic: true,
+        label: 'trc',
+        render: {
+            fillStyle: '#000000'
+        }
+    });
+
+    Matter.Body.rotate(topRightCorner, 15);
+
+    let topLeftCorner = Bodies.polygon(offset, offset, 3, 200, {
+        isStatic: true,
+        label: 'trc',
+        render: {
+            fillStyle: '#000000'
+        }
+    });
+
+    Matter.Body.rotate(topLeftCorner, 24);
+
     // create container
     World.add(engine.world, [
-        Bodies.rectangle(width / 2, height - offset, width, 10, {
-            isStatic: true,
-            render: {
-                fillStyle: '#e2e2e2'
-            }
-        }),
         Bodies.rectangle(width / 2, offset, width, 10, {
             isStatic: true,
             render: {
@@ -88,12 +102,8 @@ function init() {
                 fillStyle: '#e2e2e2'
             }
         }),
-        Bodies.polygon(width / 2, height - offset, width, 10, {
-            isStatic: true,
-            render: {
-                fillStyle: '#e2e2e2'
-            }
-        })
+        topRightCorner,
+        topLeftCorner
     ]);
 
     for (let i = 0; i < 5; i++) {
