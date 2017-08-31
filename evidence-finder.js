@@ -25,7 +25,7 @@ const TARGETS_DESKTOP = [
   { x: 579, y: 673 }
 ];
 
-const TARGETS_MOBILE = [
+const TARGETS_GRID = [
   { x: 400, y: 134 },
   { x: 335, y: 225 },
   { x: 512, y: 160 },
@@ -46,7 +46,7 @@ const TARGETS_MOBILE = [
   { x: 535, y: 651 }
 ];
 
-const TARGETS_GRID = [
+const TARGETS_MOBILE = [
   { x: 350, y: 135 },
   { x: 460, y: 135 },
   { x: 570, y: 135 },
