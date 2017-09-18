@@ -1,0 +1,1 @@
+EvidenceFinder.Core.Config = {};

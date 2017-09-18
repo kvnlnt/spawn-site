@@ -1,0 +1,20 @@
+{
+    "meta": {
+        "title": "Evidence Finder"
+    },
+    "js": [
+        "./src/js/core/namespacer.js",
+        "./src/js/core/config.js",
+        "./src/js/core/node.js",
+        "./src/js/core/page.js",
+        "./src/js/core/part.js",
+        "./src/js/core/piece.js",
+        "./src/js/core/route.js",
+        "./src/js/core/router.js",
+        "./src/js/common/filters.js",
+        "./src/js/common/layouts.js",
+        "./src/js/main.js"
+    ],
+    "css": [  
+    ]
+}

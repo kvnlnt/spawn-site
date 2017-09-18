@@ -1,14 +1,10 @@
 {
   "name": "evidence-finder",
+  "main": "evidence-finder.js",
   "authors": [
     "Kevin Lint <kevinlint@toolhouse.com>"
   ],
-  "description": "WEM component",
-  "main": "src/main.js",
-  "keywords": [
-    "evidence",
-    "finder"
-  ],
+  "description": "",
   "license": "MIT",
   "homepage": "",
   "ignore": [
@@ -17,5 +13,9 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "bounce.js": "^0.8.2",
+    "lodash": "^4.17.4"
+  }
 }
