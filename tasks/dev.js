@@ -4,7 +4,6 @@ const path = require("path");
 const fs = require('fs');
 const util = require("./util");
 const chalk = require("chalk");
-const exec = require('child_process').exec;
 
 function Dev(config) {
     var config = config || {};
@@ -60,15 +59,8 @@ Dev.prototype = {
         }
     },
     reply: function() {
-        console.log("");
-        console.log("");
-        console.log(chalk.cyan("Dev"));
-        console.log("");
-        console.log("");
-        console.log('Dev server is now running on port 3000');
-        console.log("");
-        console.log("");
-        if(this.autoLaunch) exec('open http://localhost:3000');
+        console.log(chalk.cyan("\u2713"), chalk.white("Dev"));
+        console.log('Open: http://localhost:3000');
     }
 };
 

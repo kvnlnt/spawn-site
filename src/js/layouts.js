@@ -1,16 +1,17 @@
 /**
  * Layout types, use BEM sytnax for value
  */
-EvidenceFinder.Common.LAYOUTS = {
+EvidenceFinder.LAYOUT_TYPES = {
   RANDOM: "layout-random",
   PYRAMID: "layout-pyramid",
   COLUMNS: "layout-column"
 };
 
-
 /**
  * Fixed layout configurations
  */
-EvidenceFinder.Common.LAYOUT_RANDOM = [];
-EvidenceFinder.Common.LAYOUT_PYRAMID = [];
-EvidenceFinder.Common.LAYOUT_COLUMNS = [];
+EvidenceFinder.LAYOUTS = {
+  RANDOM:[],
+  PYRAMID: [],
+  COLUMNS: []
+};

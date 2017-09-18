@@ -1,12 +1,12 @@
-EvidenceFinder.Core.Route = function(settings) {
-    this.settings = settings;
+EvidenceFinder.Route = function(settings) {
+    var settings = settings || {};
     this.path = settings.path;
-    this.page = settings.page;
+    this.callback = settings.callback;
     this.pathTemplate = this.replacePathParamsWithChar(this.path, '?');
-    this.pathParamIndices = this.multiIndexOf(this.pathTemplate), '?';
+    this.pathParamIndices = this.multiIndexOf(this.pathTemplate, '?');
 };
 
-EvidenceFinder.Core.Route.prototype = {
+EvidenceFinder.Route.prototype = {
     isMatch: function(path) {
         return this.pathTemplate === this.replacePathIndicesWithChar(path, this.pathParamIndices, '?');
     },

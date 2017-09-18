@@ -1,0 +1,69 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.evidence-finder-wrapper {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(270deg, #0068ae 0%, #001963 100%);
+}
+
+.evidence-finder {
+  font-family: verdana;
+}
+
+/**
+ * Layout
+ */
+.header-wrapper {
+  width: 100%;
+  height: 116px;
+}
+
+.header {
+  width: 960px;
+  margin: 0 auto;
+  display: table;
+}
+
+.header__logo {
+  display: table-cell;
+}
+
+.header__menu {
+  display: table-cell;
+}
+
+.body {
+  width: 960px;
+  margin:0 auto;
+  position: relative;
+}
+
+.body__tally {
+}
+
+.body__filters {
+}
+
+.body__cta {
+  width:340px;
+  position: absolute;
+  right: 0;
+  top: 50px;
+}
+
+.drawer {
+}
+
+.drawer__summary {
+}
+
+.drawer__articles {
+}
+
+.drawer__navigation {
+}

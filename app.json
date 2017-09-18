@@ -3,18 +3,24 @@
         "title": "Evidence Finder"
     },
     "js": [
-        "./src/js/core/namespacer.js",
-        "./src/js/core/config.js",
-        "./src/js/core/node.js",
-        "./src/js/core/page.js",
-        "./src/js/core/part.js",
-        "./src/js/core/piece.js",
-        "./src/js/core/route.js",
-        "./src/js/core/router.js",
-        "./src/js/common/filters.js",
-        "./src/js/common/layouts.js",
+        "./src/js/polyfills/object.assign.js",
+        "./src/js/namespacer.js",
+        "./src/js/config.js",
+        "./src/js/route.js",
+        "./src/js/router.js",
+        "./src/js/template.js",
+        "./src/js/filters.js",
+        "./src/js/layouts.js",
+        "./src/js/app.js",
         "./src/js/main.js"
     ],
-    "css": [  
+    "css": [
+        "./src/css/ie.css",
+        "./src/css/colors.css",
+        "./src/css/main.css",
+        "./src/css/logo.css",
+        "./src/css/menu.css",
+        "./src/css/tally.css",
+        "./src/css/cta.css"
     ]
 }

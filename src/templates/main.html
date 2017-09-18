@@ -1,18 +1,65 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title><!-- META.title --></title>
-    <link rel="icon" type="image/png" sizes="32x32" href="<!-- META.favicon -->">
-    <!-- CSS -->
-    <!--[if lte IE 9]>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title><!-- META.title --></title>
+        <link rel="icon" type="image/png" sizes="32x32" href="<!-- META.favicon -->">
+        <!-- CSS -->
+        <!--[if lte IE 9]>
         <link rel="stylesheet" type="text/css" href="assets/css/ie.css" />
-    <![endif]-->
-</head>
-<body>
-    <div id="evidence-finder"></div>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="evidence-finder-wrapper">
+            <div class="evidence-finder">
+                <div class="header-wrapper bg-white">
+                    <div class="header">
+                        <div class="header__logo">
+                            <span class="logo">
+                                <span class="text-blue-light logo__evidence">evidence</span><span class="text-blue logo__finder">finder</span>
+                            </span>
+                        </div>
+                        <div class="header__menu">
+                            <div class="menu">
+                                <div class="menu__icon"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="body">
+                    <div class="body__tally">
+                        <div class="tally">
+                            <div class="tally__articles">
+                                <div class="tally__articles__icon"></div>
+                                <div class="tally__articles__number">0</div>
+                                <div class="tally__articles__label">articles</div>
+                            </div>
+                            <div class="tally__lives">
+                                <div class="tally__lives__icon"></div>
+                                <div class="tally__lives__number">0</div>
+                                <div class="tally__lives__label">lives studied</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body__filters"></div>
+                    <div class="body__cta">
+                        <div class="cta">
+                            <div class="cta__blurb text-white">Sort our evidence library by 
+                                <span class="text-orange">evidence type</span>, 
+                                <span class="text-green">product</span> and 
+                                <span class="text-blue-light">category</span>. Select your areas of interest, view your results.</div>
+                            <button id="ViewArticles" class="cta__button text-white">View Articles</button>
+                        </div>
+                    </div>
+                </div>
+                <section class="drawer">
+                    <div class="drawer__summary"></div>
+                <ul class="drawer__articles"></ul>
+                <div class="drawer__navigation"></div>
+            </section>
+        </div>
+    </div>
     <!-- JS -->
 </body>
-
 </html>

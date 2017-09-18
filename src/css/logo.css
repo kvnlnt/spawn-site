@@ -1,0 +1,14 @@
+.logo {
+  font-size: 30px;
+  line-height: 116px;
+}
+
+.logo__evidence {
+  font-weight: bold;
+  margin:0;
+  padding:0;
+}
+.logo__finder {
+  margin:0;
+  padding:0;
+}
