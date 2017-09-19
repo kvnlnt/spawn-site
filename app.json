@@ -5,14 +5,18 @@
     "js": [
         "./src/js/polyfills/object.assign.js",
         "./src/js/namespacer.js",
-        "./src/js/config.js",
-        "./src/js/route.js",
-        "./src/js/router.js",
-        "./src/js/template.js",
-        "./src/js/filters.js",
-        "./src/js/layouts.js",
+        "./src/js/models/route.js",
+        "./src/js/models/article.js",
+        "./src/js/models/filter.js",
+        "./src/js/modules/router.js",
+        "./src/js/modules/template.js",
+        "./src/js/common/constants.js",
+        "./src/js/common/template.js",
+        "./src/js/common/articles.js",
+        "./src/js/common/filters.js",
+        "./src/js/common/filter-layouts.js",
         "./src/js/app.js",
-        "./src/js/main.js"
+        "./src/js/init.js"
     ],
     "css": [
         "./src/css/ie.css",
@@ -21,6 +25,7 @@
         "./src/css/logo.css",
         "./src/css/menu.css",
         "./src/css/tally.css",
-        "./src/css/cta.css"
+        "./src/css/cta.css",
+        "./src/css/results.css"
     ]
 }

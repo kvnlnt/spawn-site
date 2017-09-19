@@ -8,8 +8,7 @@ EvidenceFinder.Router = function(settings){
 EvidenceFinder.Router.prototype = {
     addOneRoute: function(route) {
         this.routes.push(new EvidenceFinder.Route({
-            path: route.path,
-            page: route.page
+            path: route.path
         }));
         return this;
     },
