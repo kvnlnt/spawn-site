@@ -15,8 +15,7 @@
         "./src/js/common/articles.js",
         "./src/js/common/filters.js",
         "./src/js/common/filter-layouts.js",
-        "./src/js/app.js",
-        "./src/js/init.js"
+        "./src/js/app.js"
     ],
     "css": [
         "./src/css/ie.css",

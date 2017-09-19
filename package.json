@@ -29,5 +29,8 @@
     "wdio-spec-reporter": "^0.1.0",
     "wdio-testingbot-service": "^0.1.7",
     "webdriverio": "^4.6.2"
+  },
+  "devDependencies": {
+    "csvtojson": "^1.1.7"
   }
 }

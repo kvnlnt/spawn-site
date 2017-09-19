@@ -57,3 +57,12 @@ EvidenceFinder.App.prototype = {
         return this;
     },
 };
+
+/**
+ * Boot application
+ */
+document.addEventListener("DOMContentLoaded", function(event) {
+    EvidenceFinder.app = new EvidenceFinder.App({
+        container: "evidence-finder"
+    });
+});

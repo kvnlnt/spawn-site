@@ -1,6 +1,7 @@
 const app = require('./app.json');
 const chalk = require('chalk');
 const Clean = require('./tasks/clean');
+const ConvertSpreadsheet = require('./tasks/convert-spreadsheet');
 const Deploy = require('./tasks/deploy');
 const Dev = require('./tasks/dev');
 const Build = require('./tasks/build');
@@ -25,6 +26,13 @@ program
     .description('clean project')
     .action(function() {
         new Clean();
+    });
+
+program
+    .command('convert <source>')
+    .description('convert json converted csv from spreadsheet')
+    .action(function(source) {
+        new ConvertSpreadsheet(source);
     });
 
 program
