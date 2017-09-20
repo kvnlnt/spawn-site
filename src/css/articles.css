@@ -1,0 +1,15 @@
+.article {
+
+}
+
+.article__title {
+  font-weight: normal;
+  font-size: 20px;
+  max-width: 300px;
+  line-height: 30px;
+}
+
+.article__info {
+  font-size: 14px;
+  line-height: 24px;
+}

@@ -13,6 +13,10 @@
   background-color: #001965;
 }
 
+.bg-blue-ultra-light {
+  background-color: #D9DDE8;
+}
+
 .bg-orange {
   background-color: #F5A623;
 }
@@ -37,6 +41,10 @@
   color: #009FDA;
 }
 
+.text-blue-ultra-light {
+  color: #7583ac;
+}
+
 .text-blue {
   color: #001965;
 }
@@ -56,3 +64,4 @@
 .text-black {
   color: #000000;
 }
+

@@ -4,6 +4,7 @@ EvidenceFinder.FILTER_TYPES.EVIDENCE = 'filter-evidence';
 EvidenceFinder.FILTER_TYPES.PRODUCT = 'filter-product';
 EvidenceFinder.ROUTES = {};
 EvidenceFinder.ROUTES.ARTICLE = {path: "#/article/:id"};
+EvidenceFinder.ROUTES.RELATED = {path: "#/article/:id/related"};
 EvidenceFinder.ROUTES.HOME = {path: "#/"};
 EvidenceFinder.ROUTES.RESULTS = {path: "#/results"};
 EvidenceFinder.VIEW_STATES = {};

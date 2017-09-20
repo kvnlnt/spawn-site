@@ -26,6 +26,7 @@
         "./src/css/tally.css",
         "./src/css/cta.css",
         "./src/css/results.css",
-        "./src/css/articles.css"
+        "./src/css/articles.css",
+        "./src/css/details.css"
     ]
 }

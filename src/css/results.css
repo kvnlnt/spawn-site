@@ -1,3 +1,17 @@
+.results {
+  position: absolute;
+  top:0px;
+  right:100%;
+  width: 50%;
+  height: 100%;
+}
+
+.results--wrapper {
+  width: 428px;
+  margin:0 43px;
+  display: inline-block;
+}
+
 .results h2 {
   font-weight: normal;
   font-size: 24px;
@@ -7,14 +21,13 @@
 
 .results__summary {
   text-align: center;
-  width: 428px;
-  margin: 50px 0 25px 43px;
+  margin: 50px 0 25px;
 }
 
 .results__articles {
-  width: 428px;
+  width: 100%;
   list-style: none;
-  margin:0 0 0 43px;
+  margin:0 ;
   padding:0;
 }
 
@@ -27,6 +40,7 @@
   height: 120px;
   /*border:1px solid white;*/
   position: relative;
+  text-align: left;
 }
 
 .results__article:after {
@@ -76,7 +90,8 @@
 .results__navigation {
   list-style: none;
   margin:0;
-  width: 428px;
+  width: 100%;
+  padding:0;
   text-align: center;
 }
 

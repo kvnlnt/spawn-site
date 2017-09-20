@@ -28,6 +28,9 @@ EvidenceFinder.App.prototype = {
             case EvidenceFinder.ROUTES.ARTICLE.path:
                 this.showViewSplitscreenDetail();
                 break;
+            case EvidenceFinder.ROUTES.RELATED.path:
+                this.showViewSplitscreenDetail();
+                break;
             default:
                 this.showViewFullscreenRandom();
         }

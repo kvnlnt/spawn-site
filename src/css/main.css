@@ -57,14 +57,19 @@ a {
   top: 50px;
 }
 
-.results {
-  position: absolute;
-  top:0px;
-  right:100%;
-  width: 50%;
-  height: 100%;
-}
+/**
+ * SCREEN LAYOUTS
+ */
 
 .view-splitscreen-results .results {
   right:0px;
+}
+
+.view-splitscreen-details .results {
+  left:0px;
+  text-align: right;
+}
+
+.view-splitscreen-details .details {
+  left:50%;
 }
