@@ -1,5 +1,5 @@
 /**
- * Colors
+ * Backgrounds
  */
 .bg-white {
   background-color: #FFFFFF;
@@ -9,11 +9,13 @@
   background-color: #009FDA;
 }
 
-.bg-blue {
+.bg-blue,
+.bg-blue-hover:hover {
   background-color: #001965;
 }
 
-.bg-blue-ultra-light {
+.bg-blue-ultra-light,
+.bg-blue-ultra-light-hover:hover {
   background-color: #D9DDE8;
 }
 
@@ -33,20 +35,27 @@
   background-color: #000000;
 }
 
-.text-white {
+/**
+ * Text
+ */
+.text-white,
+.text-white-hover:hover {
   color: #FFFFFF;
 }
 
-.text-blue-light {
+.text-blue,
+.text-blue-hover:hover {
+  color: #001965;
+}
+
+.text-blue-light,
+.text-blue-light-hover:hover {
   color: #009FDA;
 }
 
-.text-blue-ultra-light {
+.text-blue-ultra-light,
+.text-blue-ultra-light-hover:hover {
   color: #7583ac;
-}
-
-.text-blue {
-  color: #001965;
 }
 
 .text-orange {
@@ -65,3 +74,38 @@
   color: #000000;
 }
 
+/**
+ * Border
+ */
+.border-white {
+  border-color: #FFFFFF;
+}
+
+.border-blue-light {
+  border-color: #009FDA;
+}
+
+.border-blue,
+.border-blue-hover:hover {
+  border-color: #001965;
+}
+
+.border-blue-ultra-light {
+  border-color: #D9DDE8;
+}
+
+.border-orange {
+  border-color: #F5A623;
+}
+
+.border-green {
+  border-color: #99CA3C;
+}
+
+.border-grey-light {
+  border-color: #9B9B9B;
+}
+
+.border-black {
+  border-color: #000000;
+}

@@ -24,8 +24,8 @@
   width: 150px;
   text-align: center;
   border-top-left-radius: 24px;
+  cursor: pointer;
 }
-
 
 .details__header__related {
   height: 38px;
@@ -36,6 +36,7 @@
   text-align: center;
   border-top-right-radius: 24px;
   font-style: oblique;
+  cursor: pointer;
 }
 
 .details__header__menu {
@@ -47,6 +48,7 @@
   position: absolute;
   top:0;
   right: 0;
+  cursor: pointer;
 }
 
 

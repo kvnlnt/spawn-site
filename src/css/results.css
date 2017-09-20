@@ -24,6 +24,10 @@
   margin: 50px 0 25px;
 }
 
+.results__summary a {
+  font-size: 12px;
+}
+
 .results__articles {
   width: 100%;
   list-style: none;
