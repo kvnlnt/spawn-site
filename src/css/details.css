@@ -10,6 +10,7 @@
   overflow: hidden;
   opacity:1;
   transition: all 1s;
+  opacity: 0;
 }
 
 .details__header {
@@ -61,4 +62,9 @@
  */
 .view-splitscreen-details .details {
   width:50%;
+}
+
+.view-splitscreen-details .details__wrapper {
+  opacity: 1;
+  transition: all 1s;
 }

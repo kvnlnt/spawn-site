@@ -14,6 +14,7 @@
   height: 116px;
   position: relative;
   transition: all 1s;
+  opacity: 1;
 }
 
 .main__header {
@@ -40,6 +41,7 @@
   position: absolute;
   right:20px;
   top: 43px;
+  cursor: pointer;
 }
 
 .main__body__wrapper {
@@ -88,6 +90,10 @@
 .view-splitscreen-details .main__header__wrapper {
   text-align: right;
   transition: all 1s;
+}
+
+.view-splitscreen-details .main__header__wrapper {
+  opacity: 0;
 }
 
 .view-splitscreen-results .main__header,

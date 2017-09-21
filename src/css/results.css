@@ -9,7 +9,7 @@
   margin-left:-50%;
   display: block;
   overflow: hidden;
-  opacity:1;
+  opacity:0;
   transition: all 1s;
   position: absolute;
   left:50%;
@@ -136,6 +136,10 @@
   transition: 1s all;
 }
 
+.view-splitscreen-results .results__wrapper {
+  opacity: 1;
+}
+
 .view-splitscreen-details .results {
   width:50%;
   text-align: right;
@@ -145,6 +149,7 @@
 .view-splitscreen-details .results__wrapper {
   left:100%;
   margin-left:-510px;
+  opacity: 1;
 }
 
 .view-splitscreen-results .results__article.results__article--selected:after {
