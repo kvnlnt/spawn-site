@@ -35,7 +35,7 @@ Build.prototype = {
             .replace(/<!-- META.descr -->/g, app.meta.descr)
             .replace(/<!-- META.keywords -->/g, app.meta.keywords)
             .replace(/<!-- META.favicon -->/g, app.meta.favicon)
-            .replace("<!-- CSS -->", '<link href="assets/js/bundle.min.css?ts=' + ts + '" rel="stylesheet" type="text/css"/>')
+            .replace("<!-- CSS -->", '<link href="assets/css/bundle.min.css?ts=' + ts + '" rel="stylesheet" type="text/css"/>')
             .replace("<!-- JS -->", '<script src="assets/js/bundle.min.js?ts=' + ts + '"></script>');
         fs.outputFileSync('./build/index.html', template);
         return this;
@@ -44,7 +44,11 @@ Build.prototype = {
     compileJs: function() {
         var concatJs = this.concatFiles(app.js);
         fs.outputFileSync('./build/assets/js/bundle.js', concatJs);
-        var minifiedJs = UglifyJS.minify('./build/assets/js/bundle.js');
+        try{
+            var minifiedJs = UglifyJS.minify('./build/assets/js/bundle.js');            
+        } catch (err) {
+            console.log(err);
+        }
         fs.writeFileSync('./build/assets/js/bundle.min.js', minifiedJs.code);
         return this;
     },
