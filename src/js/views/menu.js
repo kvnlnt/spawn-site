@@ -10,25 +10,22 @@ EvidenceFinder.Views.Menu = (function(VIEW_STATES, UTIL) {
     align: function(){
       switch(this.app.state.viewState){
         case VIEW_STATES.FULLSCREEN_RANDOM:
-          this.alignToMain();
+          this.alignTo('.main__header');
           break;
         case VIEW_STATES.SPLITSCREEN_RESULTS:
-          this.alignToMain();
+          this.alignTo('.main__header');
           break;
         case VIEW_STATES.SPLITSCREEN_DETAILS:
-          this.alignToDetails();
+          this.alignTo('.details__wrapper');
           break;
       }
     },
-    alignToMain: function(){
-      var mainHeaderEl = document.querySelector('.main__header__wrapper');
-      var mainHeaderEloffset = UTIL.offset(mainHeaderEl);
-      var mainHeaderElWidth = mainHeaderEl.offsetWidth;
+    alignTo: function(selector){
+      var relativeEl = document.querySelector(selector);
+      var relativeEloffset = UTIL.offset(relativeEl);
+      var relativeElWidth = relativeEl.offsetWidth;
       var menuWidth = this.el.offsetWidth;
-      this.el.style.right = mainHeaderElWidth + 'px';
-    },
-    alignToDetails: function(){
-
+      this.el.style.left = (relativeElWidth + relativeEloffset.left) - menuWidth + 'px';
     },
     hide: function() {
       this.el.classList.remove("menu--showing");
@@ -42,6 +39,9 @@ EvidenceFinder.Views.Menu = (function(VIEW_STATES, UTIL) {
     registerEvents: function() {
       document
         .querySelector(".main__header__menu")
+        .addEventListener("click", this.toggle.bind(this));
+      document
+        .querySelector('.details__header__menu')
         .addEventListener("click", this.toggle.bind(this));
       document
         .querySelector(".menu__header__close")
