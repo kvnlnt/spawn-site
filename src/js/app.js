@@ -66,6 +66,15 @@ EvidenceFinder.App = (function(ROUTER, ROUTES, VIEW_STATES, MENU){
             });
             return this;
         },
+        /**
+         * Sets the application minimum height to.
+         *
+         * @param      {<type>}  height  The height
+         * desc       XXX: This is really just a hack to deal with the fact that we have absolutely positioned elements that are taller than the parent app container. This creates a scenario where the background color is cut off. By exposing the min-height of the app container we can allow views to conditionally control it
+         */
+        setAppMinHeightTo(height){
+            document.querySelector('.evidence-finder').style.minHeight = height;
+        },
         setState(kv, options) {
             var options = options || {};
             var redraw = options.redraw === false ? false : true;
@@ -75,7 +84,7 @@ EvidenceFinder.App = (function(ROUTER, ROUTES, VIEW_STATES, MENU){
         },
         showViewFullscreenRandom: function(){
             this.removeAllStateClasses();
-            this.menu.hide();
+            // this.menu.hide();
             this.state.viewState = VIEW_STATES.FULLSCREEN_RANDOM;
             document.querySelector(".evidence-finder").classList.add(VIEW_STATES.FULLSCREEN_RANDOM);
             console.log('fullscreen random');

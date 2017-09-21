@@ -1,91 +1,132 @@
-EvidenceFinder.FILTERS = [];
-EvidenceFinder.FILTERS.push(new EvidenceFinder.Filter({
-  id: "rwe",
-  label: "Real World Evidence",
-  filterType: EvidenceFinder.FILTER_TYPES.EVIDENCE
-}));
-EvidenceFinder.FILTERS.push(new EvidenceFinder.Filter({
-  id: "clinical-trials",
-  label: "Clinical Trials",
-  filterType: EvidenceFinder.FILTER_TYPES.EVIDENCE
-}));
-EvidenceFinder.FILTERS.push(new EvidenceFinder.Filter({
-  id: "liraglutide",
-  label: "Liraglutide",
-  filterType: EvidenceFinder.FILTER_TYPES.PRODUCT
-}));
-EvidenceFinder.FILTERS.push(new EvidenceFinder.Filter({
-  id: "semaglutide",
-  label: "Semaglutide",
-  filterType: EvidenceFinder.FILTER_TYPES.PRODUCT
-}));
-EvidenceFinder.FILTERS.push(new EvidenceFinder.Filter({
-  id: "weight-change",
-  label: "Weight Change",
-  filterType: EvidenceFinder.FILTER_TYPES.CATEGORY
-}));
-EvidenceFinder.FILTERS.push(new EvidenceFinder.Filter({
-  id: "burden-of-disease",
-  label: "Burden of Disease",
-  filterType: EvidenceFinder.FILTER_TYPES.CATEGORY
-}));
-EvidenceFinder.FILTERS.push(new EvidenceFinder.Filter({
-  id: "hypoglycemia",
-  label: "Hypoglycemia",
-  filterType: EvidenceFinder.FILTER_TYPES.CATEGORY
-}));
-EvidenceFinder.FILTERS.push(new EvidenceFinder.Filter({
-  id: "epidemiology",
-  label: "Epidemiology",
-  filterType: EvidenceFinder.FILTER_TYPES.CATEGORY
-}));
-EvidenceFinder.FILTERS.push(new EvidenceFinder.Filter({
-  id: "sub-population",
-  label: "Sub-population",
-  filterType: EvidenceFinder.FILTER_TYPES.CATEGORY
-}));
-EvidenceFinder.FILTERS.push(new EvidenceFinder.Filter({
-  id: "health-economic-evaluation",
-  label: "Health Economic Evaluation",
-  filterType: EvidenceFinder.FILTER_TYPES.CATEGORY
-}));
-EvidenceFinder.FILTERS.push(new EvidenceFinder.Filter({
-  id: "meta-analysis",
-  label: "Meta Analysis",
-  filterType: EvidenceFinder.FILTER_TYPES.CATEGORY
-}));
-EvidenceFinder.FILTERS.push(new EvidenceFinder.Filter({
-  id: "cost",
-  label: "Cost",
-  filterType: EvidenceFinder.FILTER_TYPES.CATEGORY
-}));
-EvidenceFinder.FILTERS.push(new EvidenceFinder.Filter({
-  id: "cardio-vascular",
-  label: "Cardio Vascular",
-  filterType: EvidenceFinder.FILTER_TYPES.CATEGORY
-}));
-EvidenceFinder.FILTERS.push(new EvidenceFinder.Filter({
-  id: "adherence-persistence",
-  label: "Adherence/ Persistence",
-  filterType: EvidenceFinder.FILTER_TYPES.CATEGORY
-}));
-EvidenceFinder.FILTERS.push(new EvidenceFinder.Filter({
-  id: "short-term-studies",
-  label: "Short-term Studies",
-  filterType: EvidenceFinder.FILTER_TYPES.CATEGORY
-}));
-EvidenceFinder.FILTERS.push(new EvidenceFinder.Filter({
-  id: "comparitive-effectiveness",
-  label: "Comparitive Effectiveness",
-  filterType: EvidenceFinder.FILTER_TYPES.CATEGORY
-}));
-EvidenceFinder.FILTERS.push(new EvidenceFinder.Filter({
-  id: "long-term-studies",
-  label: "Long-term Studies",
-  filterType: EvidenceFinder.FILTER_TYPES.CATEGORY
-}));
-EvidenceFinder.FILTERS.push(new EvidenceFinder.Filter({
-  id: "AIC",
-  label: "A1C",
-  filterType: EvidenceFinder.FILTER_TYPES.CATEGORY
-}));
+EvidenceFinder.FILTERS = (function(FILTER, FILTER_TYPES) {
+  FILTERS = [];
+  FILTERS.push(
+    new FILTER({
+      id: "rwe",
+      label: "Real World Evidence",
+      filterType: FILTER_TYPES.EVIDENCE
+    })
+  );
+  FILTERS.push(
+    new FILTER({
+      id: "clinical-trials",
+      label: "Clinical Trials",
+      filterType: FILTER_TYPES.EVIDENCE
+    })
+  );
+  FILTERS.push(
+    new FILTER({
+      id: "liraglutide",
+      label: "Liraglutide",
+      filterType: FILTER_TYPES.PRODUCT
+    })
+  );
+  FILTERS.push(
+    new FILTER({
+      id: "semaglutide",
+      label: "Semaglutide",
+      filterType: FILTER_TYPES.PRODUCT
+    })
+  );
+  FILTERS.push(
+    new FILTER({
+      id: "weight-change",
+      label: "Weight Change",
+      filterType: FILTER_TYPES.CATEGORY
+    })
+  );
+  FILTERS.push(
+    new FILTER({
+      id: "burden-of-disease",
+      label: "Burden of Disease",
+      filterType: FILTER_TYPES.CATEGORY
+    })
+  );
+  FILTERS.push(
+    new FILTER({
+      id: "hypoglycemia",
+      label: "Hypoglycemia",
+      filterType: FILTER_TYPES.CATEGORY
+    })
+  );
+  FILTERS.push(
+    new FILTER({
+      id: "epidemiology",
+      label: "Epidemiology",
+      filterType: FILTER_TYPES.CATEGORY
+    })
+  );
+  FILTERS.push(
+    new FILTER({
+      id: "sub-population",
+      label: "Sub-population",
+      filterType: FILTER_TYPES.CATEGORY
+    })
+  );
+  FILTERS.push(
+    new FILTER({
+      id: "health-economic-evaluation",
+      label: "Health Economic Evaluation",
+      filterType: FILTER_TYPES.CATEGORY
+    })
+  );
+  FILTERS.push(
+    new FILTER({
+      id: "meta-analysis",
+      label: "Meta Analysis",
+      filterType: FILTER_TYPES.CATEGORY
+    })
+  );
+  FILTERS.push(
+    new FILTER({
+      id: "cost",
+      label: "Cost",
+      filterType: FILTER_TYPES.CATEGORY
+    })
+  );
+  FILTERS.push(
+    new FILTER({
+      id: "cardio-vascular",
+      label: "Cardio Vascular",
+      filterType: FILTER_TYPES.CATEGORY
+    })
+  );
+  FILTERS.push(
+    new FILTER({
+      id: "adherence-persistence",
+      label: "Adherence/ Persistence",
+      filterType: FILTER_TYPES.CATEGORY
+    })
+  );
+  FILTERS.push(
+    new FILTER({
+      id: "short-term-studies",
+      label: "Short-term Studies",
+      filterType: FILTER_TYPES.CATEGORY
+    })
+  );
+  FILTERS.push(
+    new FILTER({
+      id: "comparitive-effectiveness",
+      label: "Comparitive Effectiveness",
+      filterType: FILTER_TYPES.CATEGORY
+    })
+  );
+  FILTERS.push(
+    new FILTER({
+      id: "long-term-studies",
+      label: "Long-term Studies",
+      filterType: FILTER_TYPES.CATEGORY
+    })
+  );
+  FILTERS.push(
+    new FILTER({
+      id: "AIC",
+      label: "A1C",
+      filterType: FILTER_TYPES.CATEGORY
+    })
+  );
+
+  return FILTERS;
+
+})(EvidenceFinder.Filter, EvidenceFinder.FILTER_TYPES);
