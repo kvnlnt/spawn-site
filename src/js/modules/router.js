@@ -2,6 +2,7 @@ EvidenceFinder.Router = function(settings){
     var settings = settings || {};
     this.routes = [];
     this.app = settings.app;
+    this.registerEvents();
     return this;
 };
 
@@ -17,6 +18,12 @@ EvidenceFinder.Router.prototype = {
         return this.routes.filter(function(a){
             return a.isMatch(path);
         })[0];
+    },
+    handleHashChange: function(e){
+        this.route(window.location.hash);
+    },
+    registerEvents: function(){
+        window.addEventListener("hashchange", this.handleHashChange.bind(this))
     },
     route: function(path, setStateOptions) {
         route = this.getRouteByPath(path);

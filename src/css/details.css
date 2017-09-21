@@ -1,15 +1,15 @@
-.details--wrapper {
+.details {
+  transition: 1s all;
+  width: 0%;
+}
+
+.details__wrapper {
   width: 428px;
   margin:43px;
   display: inline-block;
-}
-
-.details {
-  position: absolute;
-  top:0px;
-  right:100%;
-  width: 50%;
-  height: 100%;
+  overflow: hidden;
+  opacity:1;
+  transition: all 1s;
 }
 
 .details__header {
@@ -54,4 +54,11 @@
 
 .details__body {
   margin:50px 0 0;
+}
+
+/**
+ * Responsive
+ */
+.view-splitscreen-details .details {
+  width:50%;
 }

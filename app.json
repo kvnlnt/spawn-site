@@ -20,13 +20,15 @@
     "css": [
         "./src/css/ie.css",
         "./src/css/colors.css",
-        "./src/css/main.css",
+        "./src/css/global.css",
         "./src/css/logo.css",
         "./src/css/menu.css",
         "./src/css/tally.css",
         "./src/css/cta.css",
         "./src/css/results.css",
         "./src/css/articles.css",
-        "./src/css/details.css"
+        "./src/css/details.css",
+        "./src/css/icons.css",
+        "./src/css/main.css"
     ]
 }

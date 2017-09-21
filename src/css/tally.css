@@ -73,3 +73,9 @@
   right:0;
   top: 60px;
 }
+
+.view-splitscreen-results .tally__articles,
+.view-splitscreen-results .tally__lives
+{
+  width:80px;
+}

@@ -1,28 +1,3 @@
-.header__menu__icon {
-  width: 30px;
-  height: 20px;
-  position: relative;
-  display: inline-block;
-  border-top: 4px solid black;
-}
-
-.header__menu__icon:after, .header__menu__icon:before {
-  content: '';
-  width: 100%;
-  height: 4px;
-  background-color: #000;
-  position: absolute;
-}
-
-.header__menu__icon:after {
-  bottom: 0px;
-  left: 0;
-}
-
-.header__menu__icon:before {
-  top: 6px;
-  left: 0;
-}
 
 .menu {
   position: absolute;
@@ -35,7 +10,7 @@
   display: none;
 }
 
-.menu.showing {
+.menu--showing {
   display: block;
 }
 

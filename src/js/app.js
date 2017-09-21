@@ -7,15 +7,18 @@ EvidenceFinder.App = function App(settings){
     this.router.addOneRoute(EvidenceFinder.ROUTES.RESULTS);
     this.router.addOneRoute(EvidenceFinder.ROUTES.ARTICLE);
     this.router.route(window.location.hash);
+    this.registerEvents();
 };
 
 EvidenceFinder.App.prototype = {
-    setState(kv, options) {
-        var options = options || {};
-        var onStateChangeFunc = options.onStateChange === void 0 ? this.onStateChange.bind(this) : options.onStateChange.bind(this);
-        Object.assign(this.state, kv);
-        if(onStateChangeFunc) onStateChangeFunc();
-        return this;
+    handleLogoClick(e){
+        window.location.hash = "#/";
+    },
+    handleViewArticlesButtonClick(e){
+        window.location.hash = "#/results";
+    },
+    handleArticleClick(e){
+        window.location.hash = "#/article";
     },
     onStateChange() {
         switch(this.state.route.path){
@@ -36,10 +39,29 @@ EvidenceFinder.App.prototype = {
         }
         return this;
     },
+    registerEvents: function(){
+        document
+        .querySelector('.main__body__view__articles')
+        .addEventListener('click', this.handleViewArticlesButtonClick.bind(this));
+        document
+        .querySelector('.main__header__logo')
+        .addEventListener('click', this.handleLogoClick.bind(this));
+        document
+        .querySelector('.results__article')
+        .addEventListener('click', this.handleArticleClick.bind(this))
+    },
     removeAllStateClasses: function(){
         Object.keys(EvidenceFinder.VIEW_STATES).forEach(function(vs){
-            document.querySelector(".evidence-finder").classList.remove(vs);
+            document.querySelector(".evidence-finder").classList.remove(EvidenceFinder.VIEW_STATES[vs]);
         });
+        return this;
+    },
+    setState(kv, options) {
+        var options = options || {};
+        var onStateChangeFunc = options.onStateChange === void 0 ? this.onStateChange.bind(this) : options.onStateChange.bind(this);
+        Object.assign(this.state, kv);
+        onStateChangeFunc();
+        return this;
     },
     showViewFullscreenRandom: function(){
         this.removeAllStateClasses();
