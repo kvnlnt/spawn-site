@@ -7,6 +7,7 @@
   margin:0 auto;
   display: block;
   overflow: hidden;
+  height: 100%;
 }
 
 .main__header__wrapper {

@@ -32,8 +32,9 @@ EvidenceFinder.Router = (function(ROUTE){
             if(!route) return;
             this.app.setState({
                 route: route,
-                params: route.getPathParams(path)
-            }, {redraw:true});
+                routeParams: route.getPathParams(path),
+                redraw: true
+            });
             return this;
         },
         addManyRoutes: function(routes) {

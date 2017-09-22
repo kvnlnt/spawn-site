@@ -133,6 +133,8 @@
   font-size: 15px;
   padding:10px 0;
   border-bottom: 4px solid #e2e2e2;
+  font-weight: normal;
+  margin-bottom:0;
 }
 
 .menu__filter {

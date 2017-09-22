@@ -1,0 +1,15 @@
+#cells {
+  width: 960px;
+  height: 960px;
+}
+
+polygon[cell-is-active="true"]{
+  fill: transparent;
+  stroke: white;
+  stroke-width: 2px;
+}
+
+polygon[cell-is-active="false"] {
+  display: none;
+}
+

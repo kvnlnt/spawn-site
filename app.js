@@ -56,12 +56,15 @@ program
     });
 
 program
-    .command('deploy <env>')
+    .command('deploy')
     .description('deploy to test server')
-    .action(function(env) {
-        new Clean();
-        new Build();
-        new Deploy(env);
+    .option('-u', '--username <username>', 'server username', /^(test|prod)$/i, 'test')
+    .option('-e, --env <env>', 'deployment environment', /^(test|prod)$/i, 'test')
+    .action(function(options) {
+        console.log(options);
+        // new Clean();
+        // new Build();
+        // new Deploy(options);
     });
 
 

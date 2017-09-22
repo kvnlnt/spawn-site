@@ -1,10 +1,12 @@
-EvidenceFinder.App = (function(ROUTER, ROUTES, VIEW_STATES, MENU) {
+EvidenceFinder.App = (function(ROUTER, ROUTES, VIEW_STATES, MENU, CELLS) {
     function App(settings) {
         this.settings = settings || {};
+        this.container = settings.container;
         this.state = {};
-        this.state.container = settings.container;
         this.state.viewState = VIEW_STATES.FULLSCREEN_RANDOM;
+        this.state.redraw = true;
         this.menu = new MENU({ app: this }); // this must exist before the router
+        this.cells = new CELLS({app:this});
         this.router = new ROUTER({ app: this });
         this.router.addOneRoute(ROUTES.HOME);
         this.router.addOneRoute(ROUTES.RESULTS);
@@ -24,7 +26,9 @@ EvidenceFinder.App = (function(ROUTER, ROUTES, VIEW_STATES, MENU) {
             window.location.hash = "#/results";
         },
         onStateChange: function(redraw) {
-            if (redraw) {
+            if (this.state.redraw) {
+
+                // respond to route changes
                 switch (this.state.route.path) {
                     case ROUTES.HOME.path:
                         this.showViewFullscreenRandom();
@@ -41,6 +45,7 @@ EvidenceFinder.App = (function(ROUTER, ROUTES, VIEW_STATES, MENU) {
                     default:
                         this.showViewFullscreenRandom();
                 }
+                
             }
             return this;
         },
@@ -80,18 +85,18 @@ EvidenceFinder.App = (function(ROUTER, ROUTES, VIEW_STATES, MENU) {
         },
         setState: function(kv, options) {
             var options = options || {};
-            var redraw = options.redraw === false ? false : true;
             Object.assign(this.state, kv);
-            this.onStateChange(redraw);
+            this.onStateChange();
             return this;
         },
         showViewFullscreenRandom: function() {
             this.removeAllStateClasses();
-            // this.menu.hide();
+            this.menu.hide();
             this.state.viewState = VIEW_STATES.FULLSCREEN_RANDOM;
             document
                 .querySelector(".evidence-finder")
                 .classList.add(VIEW_STATES.FULLSCREEN_RANDOM);
+            this.cells.render();
             console.log("fullscreen random");
             return this;
         },
@@ -122,7 +127,8 @@ EvidenceFinder.App = (function(ROUTER, ROUTES, VIEW_STATES, MENU) {
     EvidenceFinder.Router,
     EvidenceFinder.ROUTES,
     EvidenceFinder.VIEW_STATES,
-    EvidenceFinder.Views.Menu
+    EvidenceFinder.Views.Menu,
+    EvidenceFinder.Views.Cells
 );
 
 /**

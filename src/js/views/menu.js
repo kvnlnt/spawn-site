@@ -88,7 +88,8 @@ EvidenceFinder.Views.Menu = (function(VIEW_STATES, UTIL, FILTERS, FILTER_TYPES, 
     },
     renderCategoryFilters: function(){
       var filters = FILTER.getFiltersByType(FILTERS, FILTER_TYPES.CATEGORY);
-      this.renderFilters(filters, '.menu__category');
+      this.renderFilters(filters.splice(0, filters.length/2), '.menu__category:nth-child(1)');
+      this.renderFilters(filters.splice(filters.length/2, filters.length), '.menu__category:nth-child(2)');
       return this;
     },
     setupFilters: function(){

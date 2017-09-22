@@ -13,10 +13,10 @@
         "./src/js/models/filter.js",
         "./src/js/common/articles.js",
         "./src/js/common/filters.js",
-        "./src/js/common/filter-layouts.js",
         "./src/js/modules/router.js",
         "./src/js/modules/template.js",
         "./src/js/views/menu.js",
+        "./src/js/views/cells.js",
         "./src/js/app.js"
     ],
     "css": [
@@ -31,6 +31,7 @@
         "./src/css/articles.css",
         "./src/css/details.css",
         "./src/css/icons.css",
+        "./src/css/cells.css",
         "./src/css/main.css"
     ]
 }
