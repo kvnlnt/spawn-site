@@ -5,13 +5,10 @@ EvidenceFinder.Views.Cells = (function(CELL, FILTERS, VIEW_STATES, UTIL) {
         this.grid = Cells.GRIDS.RANDOM;
         this.filters = settings.filters;
         this.cells = [];
+        this.hasRendered = false;
     }
 
     Cells.prototype = {
-
-        animateCellIn: function(cell) {
-            cell.setAttribute("points", this.calcHexPoints(params.x, params.y, params.radius));
-        },
 
         calcHexPoints: function(x, y, radius) {
             var points = [];
@@ -28,7 +25,7 @@ EvidenceFinder.Views.Cells = (function(CELL, FILTERS, VIEW_STATES, UTIL) {
 
         },
 
-        reflowCells: function() {
+        reflowCells: function(formFactorChange) {
             var that = this;
             this.cells.forEach(function(cell, i) {
                 cell.moveTo(that.grid[i]);
@@ -53,16 +50,24 @@ EvidenceFinder.Views.Cells = (function(CELL, FILTERS, VIEW_STATES, UTIL) {
                 that.cells.push(cell);
                 cell.animateIn();
             });
+            this.hasRendered = true;
             return this;
         },
 
-        setGrid: function(grid) {
-            this.grid = grid;
+        setGridToAside: function() {
+            this.grid = Cells.GRIDS.ASIDE;
+            this.reflowCells();
             return this;
         },
 
         setGridToOrdered: function() {
             this.grid = Cells.GRIDS.ORDERED;
+            this.reflowCells();
+            return this;
+        },
+
+        setGridToRandom: function() {
+            this.grid = Cells.GRIDS.RANDOM;
             this.reflowCells();
             return this;
         },

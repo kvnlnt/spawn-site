@@ -8,9 +8,8 @@ EvidenceFinder.Cell = (function(EASING, UTIL) {
         this.radius = settings.radius;
         this.points = settings.points;
         this.filter = settings.filter;
-        this.animationDirectionClasses = [
-            "cell--animate-in"
-        ];
+        this.animateInClasses = ["cell--animate-in"];
+        this.animateOutClasses = ["cell--animate-out"];
         this.animationDelayClasses = [
             "cell--animation-delay-100",
             "cell--animation-delay-200",
@@ -23,9 +22,10 @@ EvidenceFinder.Cell = (function(EASING, UTIL) {
 
     Cell.prototype = {
         animateIn: function() {
-            this.el.classList.add(this.getRandomDirectionClass());
-            this.el.classList.add(this.getRandomDurationClass());
-            this.el.querySelector(".cell__label").classList.add(this.getRandomDurationClass());
+            this.el.classList.add(this.getRandomAnimateInClass());
+            var animationDelay = this.getRandomDurationClass();
+            this.el.classList.add(animationDelay);
+            this.el.querySelector(".cell__label").classList.add(animationDelay);
             return this;
         },
 
@@ -68,27 +68,15 @@ EvidenceFinder.Cell = (function(EASING, UTIL) {
             return hexGroup;
         },
 
-        convertPointsStringToArray: function(points) {
-            return points.split(" ").map(function(a) {
-                var coords = a.split(",");
-                return {
-                    x: parseFloat(coords[0]),
-                    y: parseFloat(coords[1])
-                };
-            });
+        getRandomAnimateInClass: function() {
+            return this.animateInClasses[
+                UTIL.randomInteger(0, this.animateInClasses.length)
+            ];
         },
 
-        convertPointsArrayToString: function(points) {
-            return points
-                .map(function(a) {
-                    return a.x + "," + a.y;
-                })
-                .join(" ");
-        },
-
-        getRandomDirectionClass: function() {
-            return this.animationDirectionClasses[
-                UTIL.randomInteger(0, this.animationDirectionClasses.length)
+        getRandomAnimateOutClass: function() {
+            return this.animateOutClasses[
+                UTIL.randomInteger(0, this.animateOutClasses.length)
             ];
         },
 
@@ -105,11 +93,46 @@ EvidenceFinder.Cell = (function(EASING, UTIL) {
             } else {
                 this.el.classList.remove('cell--selected');
             }
-            this.parent.setGridToOrdered();
+            this.app.handleCellClick();
         },
 
         moveTo: function(gridCoords){
-            this.el.setAttribute("transform", "translate("+gridCoords.x+", "+gridCoords.y+")");
+            // XXX: don't move if coords are the same, else you'll be redrawing all cells
+            if(this.x === gridCoords.x && this.y === gridCoords.y) return;
+            var that = this;
+            this.removeAllAnimateInClasses();
+            this.el.classList.add(this.getRandomAnimateOutClass());
+            setTimeout(function(){
+                that.removeAllAnimateOutClasses();
+                that.el.setAttribute("transform", "translate("+gridCoords.x+", "+gridCoords.y+")");
+                that.el.classList.add(that.getRandomAnimateInClass());
+            }, 1000);
+            this.x = gridCoords.x;
+            this.y = gridCoords.y;
+        },
+
+        removeAllAnimateInClasses: function(){
+            var that = this;
+            this.animateInClasses.forEach(function(c){
+                that.el.classList.remove(c);
+            });
+            return this
+        },
+
+        removeAllAnimateOutClasses: function(){
+            var that = this;
+            this.animateOutClasses.forEach(function(c){
+                that.el.classList.remove(c);
+            });
+            return this
+        },
+
+        removeAllDelayClasses: function(){
+            var that = this;
+            this.animationDelayClasses.forEach(function(c){
+                that.el.classList.remove(c);
+            });
+            return this
         },
 
         setPoints: function(points) {

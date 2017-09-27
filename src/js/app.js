@@ -8,17 +8,39 @@ EvidenceFinder.App = (function(ROUTER, ROUTE, ROUTES, VIEW_STATES, MENU, CELLS, 
         this.cells = new CELLS({app:this, filters: FILTERS});
         this.router = new ROUTER({ app: this });
         this.router
-        .addRoute(new ROUTE({path: "#/", viewState: VIEW_STATES.FULLSCREEN_RANDOM}))
+        .addRoute(new ROUTE({path: "#/", viewState: VIEW_STATES.FULLSCREEN_ORDERED}))
         .addRoute(new ROUTE({path: "#/filtered", viewState: VIEW_STATES.FULLSCREEN_ORDERED}))
         .addRoute(new ROUTE({path: "#/results", viewState: VIEW_STATES.SPLITSCREEN_RESULTS}))
         .addRoute(new ROUTE({path: "#/article/:id", viewState: VIEW_STATES.SPLITSCREEN_DETAILS}))
-        .addRoute(new ROUTE({path: "#/article/:id/related", viewState: VIEW_STATES.SPLITSCREEN_RELATED}))
-        .go(window.location.hash);
+        .addRoute(new ROUTE({path: "#/article/:id/related", viewState: VIEW_STATES.SPLITSCREEN_RELATED}));
         this.registerEvents();
     }
     App.prototype = {
+        /**
+         * Initialize app
+         * - if we are at the default route we show the fullscreen random grid. This solves the unique corner case of the default route being mapped to fullscreen ordered.
+         * - else, we simply route to whatever the hash is
+         */
+        _init: function(){
+            if(window.location.hash === "" || window.location.hash === "#/"){
+                this.setState({
+                    redraw: true,
+                    viewState: VIEW_STATES.FULLSCREEN_RANDOM
+                });
+            } else {
+               this.router.go(window.location.hash);
+            }
+            
+        },
         handleArticleClick: function(e) {
             window.location.hash = "#/article";
+        },
+        handleCellClick: function(){
+            if(this.state.viewState === VIEW_STATES.FULLSCREEN_RANDOM){
+                this.setState({
+                    viewState: VIEW_STATES.FULLSCREEN_ORDERED
+                });
+            }
         },
         handleLogoClick: function(e) {
             window.location.hash = "#/";
@@ -44,19 +66,21 @@ EvidenceFinder.App = (function(ROUTER, ROUTE, ROUTES, VIEW_STATES, MENU, CELLS, 
                     case VIEW_STATES.FULLSCREEN_RANDOM:
                         this.showViewFullscreenRandom();
                         break;
+                    case VIEW_STATES.FULLSCREEN_ORDERED:
+                        this.showViewFullscreenOrdered();
+                        break;
                     case VIEW_STATES.SPLITSCREEN_RESULTS:
                         this.showViewSplitscreenResults();
                         break;
                     case VIEW_STATES.SPLITSCREEN_DETAILS:
                         this.showViewSplitscreenDetail();
                         break;
-                    case VIEW_STATES.SPLITSCREEN_DETAILS:
-                        this.showViewSplitscreenDetail();
                         break;
                     default:
-                        this.showViewFullscreenRandom();
+                        return;
                 }
             }
+            if(!this.cells.hasRendered) this.cells.render();
             return this;
         },
         registerEvents: function() {
@@ -102,11 +126,21 @@ EvidenceFinder.App = (function(ROUTER, ROUTE, ROUTES, VIEW_STATES, MENU, CELLS, 
         showViewFullscreenRandom: function() {
             this.removeAllStateClasses();
             this.menu.hide();
+            this.cells.setGridToRandom();
             document
                 .querySelector(".evidence-finder")
                 .classList.add(VIEW_STATES.FULLSCREEN_RANDOM);
-            this.cells.render();
             console.log("fullscreen random");
+            return this;
+        },
+        showViewFullscreenOrdered: function() {
+            this.removeAllStateClasses();
+            this.menu.hide();
+            this.cells.setGridToOrdered();
+            document
+                .querySelector(".evidence-finder")
+                .classList.add(VIEW_STATES.FULLSCREEN_ORDERED);
+            console.log("fullscreen ordered");
             return this;
         },
         showViewSplitscreenDetail: function() {
@@ -121,6 +155,7 @@ EvidenceFinder.App = (function(ROUTER, ROUTE, ROUTES, VIEW_STATES, MENU, CELLS, 
         showViewSplitscreenResults: function() {
             this.removeAllStateClasses();
             this.menu.hide();
+            this.cells.setGridToAside();
             document
                 .querySelector(".evidence-finder")
                 .classList.add(VIEW_STATES.SPLITSCREEN_RESULTS);
@@ -147,5 +182,5 @@ EvidenceFinder.App = (function(ROUTER, ROUTE, ROUTES, VIEW_STATES, MENU, CELLS, 
 document.addEventListener("DOMContentLoaded", function(event) {
     EvidenceFinder.app = new EvidenceFinder.App({
         container: "evidence-finder"
-    });
+    })._init();
 });

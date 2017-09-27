@@ -5,7 +5,11 @@
 
 .cell{
   opacity: 0.8;
-  transition: all 0.5s;
+
+  /**
+   * XXX this must always be kept in coordination with animation out classes and the moveTo func in the cell view
+   */
+  transition: all 250ms cubic-bezier(0.455, 0.030, 0.515, 0.955); /* easeInQuad */
 }
 
 /**
@@ -64,6 +68,20 @@
   }
 }
 
+.cell--animate-out .cell__path {
+  stroke-dashoffset: 300;
+  animation: pathAnimOut 0.5s linear forwards;
+  fill: transparent !important;
+  stroke: #FFFFFF !important;
+  stroke-opacity: 1;
+}
+
+@keyframes pathAnimOut {
+  to {
+    stroke-dashoffset: 1200;
+  }
+}
+
 /**
  * Count
  */
@@ -84,6 +102,18 @@
   to {
     opacity: 1;
     transform: translate(0,0);
+  }
+}
+
+.cell--animate-out .cell__count {
+  animation: countAnimOut 0.5s linear forwards;
+}
+
+
+@keyframes countAnimOut {
+  to {
+    opacity: 0;
+    transform: translate(0,-10px);
   }
 }
 
@@ -145,6 +175,17 @@
   }
 }
 
+.cell--animate-out .cell__label {
+  animation: labelAnimOut 0.5s linear forwards;
+}
+
+@keyframes labelAnimOut {
+  to {
+    opacity: 0;
+    transform: scale(1) translate(0,10px);
+  }
+}
+
 /**
  * Checkmark
  */
@@ -160,7 +201,7 @@
 }
 
 .cell--animate-in .cell__checkmark {
-  animation: checkmarkAnim 1s linear forwards;
+  animation: checkmarkAnimIn 1s linear forwards;
 }
 
 .filter-category:hover .cell__checkmark,
@@ -180,7 +221,7 @@
   animation: checkmarkActiveAnim 1s ease-out forwards
 }
 
-@keyframes checkmarkAnim {
+@keyframes checkmarkAnimIn {
   to {
     stroke-dashoffset: 0;
     stroke-opacity: 0.3;
@@ -196,6 +237,20 @@
   }
 }
 
+.cell--animate-out .cell__checkmark,
+.cell--animate-out.cell--selected .cell__checkmark {
+  animation: checkmarkAnimOut 1s linear forwards;
+}
+
+
+@keyframes checkmarkAnimOut {
+  to {
+    stroke-dashoffset: 100;
+    stroke-opacity: 0;
+    transform: translate(0,-10px);
+  }
+}
+
 /**
  * Helpers
  */
@@ -203,34 +258,34 @@
 .cell--animation-delay-100 .cell__label,
 .cell--animation-delay-100 .cell__count,
 .cell--animation-delay-100 .cell__checkmark {
-  animation-delay: .1s;
+  /*animation-delay: .1s;*/
 }
 
 .cell--animation-delay-200 .cell__path,
 .cell--animation-delay-200 .cell__label,
 .cell--animation-delay-200 .cell__count,
 .cell--animation-delay-200 .cell__checkmark {
-  animation-delay: .3s;
+  /*animation-delay: .3s;*/
 }
 
 .cell--animation-delay-300 .cell__path,
 .cell--animation-delay-300 .cell__label,
 .cell--animation-delay-300 .cell__count,
 .cell--animation-delay-300 .cell__checkmark {
-  animation-delay: .5s;
+  /*animation-delay: .5s;*/
 }
 
 .cell--animation-delay-400 .cell__path, 
 .cell--animation-delay-400 .cell__label,
 .cell--animation-delay-400 .cell__count,
 .cell--animation-delay-400 .cell__checkmark {
-  animation-delay: .7s;
+  /*animation-delay: .7s;*/
 }
 
 .cell--animation-delay-500 .cell__path, 
 .cell--animation-delay-500 .cell__label,
 .cell--animation-delay-500 .cell__count,
 .cell--animation-delay-500 .cell__checkmark {
-  animation-delay: .9s;
+  /*animation-delay: .9s;*/
 }
 
