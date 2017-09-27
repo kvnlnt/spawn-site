@@ -29,7 +29,10 @@ EvidenceFinder.Cell = (function(EASING, UTIL) {
             return this;
         },
 
-        animateOut: function() {},
+        animateOut: function() {
+            this.removeAllAnimateInClasses();
+            this.el.classList.add(this.getRandomAnimateOutClass());
+        },
 
         createEl: function() {
 
@@ -100,13 +103,12 @@ EvidenceFinder.Cell = (function(EASING, UTIL) {
             // XXX: don't move if coords are the same, else you'll be redrawing all cells
             if(this.x === gridCoords.x && this.y === gridCoords.y) return;
             var that = this;
-            this.removeAllAnimateInClasses();
-            this.el.classList.add(this.getRandomAnimateOutClass());
+            this.animateOut();
             setTimeout(function(){
                 that.removeAllAnimateOutClasses();
                 that.el.setAttribute("transform", "translate("+gridCoords.x+", "+gridCoords.y+")");
                 that.el.classList.add(that.getRandomAnimateInClass());
-            }, 1000);
+            }, 250);
             this.x = gridCoords.x;
             this.y = gridCoords.y;
         },

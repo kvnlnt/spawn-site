@@ -5,7 +5,7 @@ EvidenceFinder.App = (function(ROUTER, ROUTE, ROUTES, VIEW_STATES, MENU, CELLS, 
         this.state = {};
         this.state.viewState = VIEW_STATES.FULLSCREEN_RANDOM;
         this.menu = new MENU({ app: this }); // this must exist before the router
-        this.cells = new CELLS({app:this, filters: FILTERS});
+        this.cells = new CELLS({app:this});
         this.router = new ROUTER({ app: this });
         this.router
         .addRoute(new ROUTE({path: "#/", viewState: VIEW_STATES.FULLSCREEN_ORDERED}))

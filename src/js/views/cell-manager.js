@@ -3,7 +3,6 @@ EvidenceFinder.Views.Cells = (function(CELL, FILTERS, VIEW_STATES, UTIL) {
     function Cells(settings) {
         this.app = settings.app;
         this.grid = Cells.GRIDS.RANDOM;
-        this.filters = settings.filters;
         this.cells = [];
         this.hasRendered = false;
     }
@@ -21,14 +20,31 @@ EvidenceFinder.Views.Cells = (function(CELL, FILTERS, VIEW_STATES, UTIL) {
             return points.join(" ");
         },
 
-        createGrid: function(rows, cols, activeCellList) {
+        getCellsToHide: function(){
+            var activeFilters = FILTERS.getActiveFilters().map(function(filter){
+                return filter.id;
+            });
+            return this.cells.filter(function(cell){
+                return activeFilters.indexOf(cell.filter.id) === -1;
+            });
+        },
 
+        getCellsToShow: function(){
+            var activeFilters = FILTERS.getActiveFilters().map(function(filter){
+                return filter.id;
+            });
+            return this.cells.filter(function(cell){
+                return activeFilters.indexOf(cell.filter.id) != -1;
+            });
         },
 
         reflowCells: function(formFactorChange) {
             var that = this;
             this.app.setAppBodyWrapperMinHeightTo(this.grid[that.grid.length-1].y + 100);
-            this.cells.forEach(function(cell, i) {
+            this.getCellsToHide().forEach(function(cell){
+                cell.animateOut();
+            });
+            this.getCellsToShow().forEach(function(cell, i) {
                 cell.moveTo(that.grid[i]);
             });
         },
@@ -37,7 +53,7 @@ EvidenceFinder.Views.Cells = (function(CELL, FILTERS, VIEW_STATES, UTIL) {
             var cell;
             var svg = document.getElementById("cells");
             var that = this;
-            this.filters.forEach(function(filter, i) {
+            FILTERS.collection.forEach(function(filter, i) {
                 cell = new CELL({
                     app: that.app,
                     parent: that,
@@ -109,7 +125,7 @@ EvidenceFinder.Views.Cells = (function(CELL, FILTERS, VIEW_STATES, UTIL) {
     return Cells;
 }(
     EvidenceFinder.Cell,
-    EvidenceFinder.FILTERS,
+    EvidenceFinder.Collections.FILTERS,
     EvidenceFinder.VIEW_STATES,
     EvidenceFinder.Util
 ));

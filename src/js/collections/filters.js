@@ -1,6 +1,9 @@
 EvidenceFinder.Collections.FILTERS = (function(FILTER, FILTERS){
 
-  var filters = FILTERS.map(function(a){ return new FILTER(a)});
+  /**
+   * The collection
+   */
+  var collection = FILTERS.map(function(a){ return new FILTER(a)});
 
   /**
    * Get record by key/val
@@ -9,12 +12,28 @@ EvidenceFinder.Collections.FILTERS = (function(FILTER, FILTERS){
    * @param      {<type>}  val     The value
    * @return     {<type>}  The by.
    */
-  filters.getBy = function(key, val) {
-    return filters.filter(function(a){
+  function getBy(key, val) {
+    return collection.filter(function(a){
       return a[key] === val;
     });
   };
 
-  return filters;
+  /**
+   * Gets the active filters.
+   *
+   * @return     {<type>}  The active filters.
+   */
+  function getActiveFilters(){
+    return collection.filter(function(filter){
+      // return filter.isSelected === true;
+      return true;
+    });
+  }
+
+  return {
+    collection: collection,
+    getBy: getBy,
+    getActiveFilters: getActiveFilters
+  };
 
 }(EvidenceFinder.Filter, EvidenceFinder.DATA.FILTERS));
