@@ -41,19 +41,19 @@
 .filter-evidence .cell__path:hover,
 .filter-evidence.cell--selected .cell__path {
   fill: #99CA3C;
-  transition: all 0.5s;
+  transition: all 0.25s;
 }
 
 .filter-product .cell__path:hover,
 .filter-product.cell--selected .cell__path {
   fill: #F5A623;
-  transition: all 0.5s;
+  transition: all 0.25s;
 }
 
 .filter-category .cell__path:hover,
 .filter-category.cell--selected .cell__path {
   fill: #009FDA;
-  transition: all 0.5s;
+  transition: all 0.25s;
 }
 
 .cell--animate-in .cell__path {
@@ -70,9 +70,8 @@
 
 .cell--animate-out .cell__path {
   stroke-dashoffset: 300;
-  animation: pathAnimOut 0.5s linear forwards;
+  animation: pathAnimOut 0.25s linear forwards;
   fill: transparent !important;
-  stroke: #FFFFFF !important;
   stroke-opacity: 1;
 }
 
@@ -95,7 +94,7 @@
 }
 
 .cell--animate-in .cell__count {
-  animation: countAnimIn 0.5s linear forwards;
+  animation: countAnimIn 0.25s linear forwards;
 }
 
 @keyframes countAnimIn {
@@ -106,7 +105,7 @@
 }
 
 .cell--animate-out .cell__count {
-  animation: countAnimOut 0.5s linear forwards;
+  animation: countAnimOut 0.25s linear forwards;
 }
 
 
@@ -132,19 +131,19 @@
 .filter-evidence:hover .cell__count,
 .filter-evidence.cell--selected .cell__count {
   fill: #FFFFFF;
-  transition: all 0.5s;
+  transition: all 0.25s;
 }
 
 .filter-product:hover .cell__count,
 .filter-product.cell--selected .cell__count  {
   fill: #FFFFFF;
-  transition: all 0.5s;
+  transition: all 0.25s;
 }
 
 .filter-category:hover .cell__count,
 .filter-category.cell--selected .cell__count  {
   fill: #FFFFFF;
-  transition: all 0.5s;
+  transition: all 0.25s;
 }
 
 /**
@@ -158,14 +157,14 @@
   pointer-events: none;
 }
 
-.cell__label tspan {
+.cell__label text {
   fill: white;
   font-size: 12px;
   text-anchor: middle;
 }
 
 .cell--animate-in .cell__label {
-  animation: labelAnimIn 0.5s linear forwards;
+  animation: labelAnimIn 0.25s linear forwards;
 }
 
 @keyframes labelAnimIn {
@@ -176,7 +175,7 @@
 }
 
 .cell--animate-out .cell__label {
-  animation: labelAnimOut 0.5s linear forwards;
+  animation: labelAnimOut 0.25s linear forwards;
 }
 
 @keyframes labelAnimOut {
@@ -258,34 +257,34 @@
 .cell--animation-delay-100 .cell__label,
 .cell--animation-delay-100 .cell__count,
 .cell--animation-delay-100 .cell__checkmark {
-  /*animation-delay: .1s;*/
+  animation-delay: .1s;
 }
 
 .cell--animation-delay-200 .cell__path,
 .cell--animation-delay-200 .cell__label,
 .cell--animation-delay-200 .cell__count,
 .cell--animation-delay-200 .cell__checkmark {
-  /*animation-delay: .3s;*/
+  animation-delay: .2s;
 }
 
 .cell--animation-delay-300 .cell__path,
 .cell--animation-delay-300 .cell__label,
 .cell--animation-delay-300 .cell__count,
 .cell--animation-delay-300 .cell__checkmark {
-  /*animation-delay: .5s;*/
+  animation-delay: .3s;
 }
 
 .cell--animation-delay-400 .cell__path, 
 .cell--animation-delay-400 .cell__label,
 .cell--animation-delay-400 .cell__count,
 .cell--animation-delay-400 .cell__checkmark {
-  /*animation-delay: .7s;*/
+  animation-delay: .4s;
 }
 
 .cell--animation-delay-500 .cell__path, 
 .cell--animation-delay-500 .cell__label,
 .cell--animation-delay-500 .cell__count,
 .cell--animation-delay-500 .cell__checkmark {
-  /*animation-delay: .9s;*/
+  animation-delay: .5s;
 }
 

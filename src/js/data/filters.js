@@ -84,8 +84,8 @@ EvidenceFinder.DATA.FILTERS = [{
         filterType: EvidenceFinder.FILTER_TYPES.CATEGORY
     },
     {
-        id: "AIC",
-        label: "A1C",
+        id: "glycemic-control",
+        label: "Glycemic Control",
         filterType: EvidenceFinder.FILTER_TYPES.CATEGORY
     }
 ];

@@ -117,6 +117,14 @@ EvidenceFinder.App = (function(ROUTER, ROUTE, ROUTES, VIEW_STATES, MENU, CELLS, 
         setAppMinHeightTo: function(height) {
             document.querySelector(".evidence-finder").style.minHeight = height;
         },
+
+        /**
+         * XXX: Sets the application body wrapper heigh to.
+         * desc       deals with corner case in firefox were the svg's wrapper needs to be tall enough for it's dynamically written components. Else we'd have to set a min possible height which would introduce the scroll bar when there are very few filters showing which is ugly. Ugly hack for an ugly problem.
+         */
+        setAppBodyWrapperMinHeightTo: function(minHeight){
+            document.querySelector('.main__body__wrapper').style.minHeight = minHeight + 'px';
+        },
         setState: function(kv, options) {
             var options = options || {};
             Object.assign(this.state, kv);

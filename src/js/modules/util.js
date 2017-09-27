@@ -29,7 +29,7 @@ EvidenceFinder.Util = {
     },
     createWrappableSVGtext: function(caption, x, y, returnChar) {
 
-            var svgText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+            var svgText = document.createElementNS('http://www.w3.org/2000/svg', 'g');
             svgText.setAttribute("class", "cell__label");
             var MAXIMUM_CHARS_PER_LINE = 15;
             var LINE_HEIGHT = 16;
@@ -68,7 +68,7 @@ EvidenceFinder.Util = {
 
             // draw lines
             lines.forEach(function(line){
-                var svgTSpan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+                var svgTSpan = document.createElementNS('http://www.w3.org/2000/svg', 'text');
                 svgTSpan.setAttributeNS(null, 'x', x);
                 svgTSpan.setAttributeNS(null, 'y', y);
                 y += LINE_HEIGHT;
@@ -78,7 +78,7 @@ EvidenceFinder.Util = {
                 svgText.appendChild(svgTSpan);
             });
 
-            var svgTSpan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+            var svgTSpan = document.createElementNS('http://www.w3.org/2000/svg', 'text');
             svgTSpan.setAttributeNS(null, 'x', x);
             svgTSpan.setAttributeNS(null, 'y', y);
             var tSpanTextNode = document.createTextNode(line);

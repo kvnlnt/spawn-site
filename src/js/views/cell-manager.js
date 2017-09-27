@@ -27,6 +27,7 @@ EvidenceFinder.Views.Cells = (function(CELL, FILTERS, VIEW_STATES, UTIL) {
 
         reflowCells: function(formFactorChange) {
             var that = this;
+            this.app.setAppBodyWrapperMinHeightTo(this.grid[that.grid.length-1].y + 100);
             this.cells.forEach(function(cell, i) {
                 cell.moveTo(that.grid[i]);
             });
