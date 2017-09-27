@@ -3,13 +3,234 @@
   height: 960px;
 }
 
-polygon[cell-is-active="true"]{
-  fill: transparent;
-  stroke: white;
-  stroke-width: 2px;
+.cell{
+  opacity: 0.8;
+  transition: all 0.5s;
 }
 
-polygon[cell-is-active="false"] {
-  display: none;
+/**
+ * Path
+ */
+
+.cell__path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 0;
+  stroke: #FFFFFF;
+  stroke-width:3px;
+  fill: transparent;
+  stroke-opacity: 0;
+  cursor: pointer;
+}
+
+.filter-evidence .cell__path {
+  stroke: #99CA3C;
+}
+
+.filter-product .cell__path {
+  stroke: #F5A623;
+}
+
+.filter-category .cell__path {
+  stroke: #009FDA;
+}
+
+.filter-evidence .cell__path:hover,
+.filter-evidence.cell--selected .cell__path {
+  fill: #99CA3C;
+  transition: all 0.5s;
+}
+
+.filter-product .cell__path:hover,
+.filter-product.cell--selected .cell__path {
+  fill: #F5A623;
+  transition: all 0.5s;
+}
+
+.filter-category .cell__path:hover,
+.filter-category.cell--selected .cell__path {
+  fill: #009FDA;
+  transition: all 0.5s;
+}
+
+.cell--animate-in .cell__path {
+  stroke-dashoffset: 1200;
+  animation: pathAnimIn 1s linear forwards;
+}
+
+@keyframes pathAnimIn {
+  to {
+    stroke-dashoffset: 0;
+    stroke-opacity: 1;
+  }
+}
+
+/**
+ * Count
+ */
+.cell__count {
+  fill: white;
+  font-size: 11px;
+  text-anchor: middle;
+  opacity: 0;
+  transform: translate(0,-10px);
+  pointer-events: none;
+}
+
+.cell--animate-in .cell__count {
+  animation: countAnimIn 0.5s linear forwards;
+}
+
+@keyframes countAnimIn {
+  to {
+    opacity: 1;
+    transform: translate(0,0);
+  }
+}
+
+.filter-evidence .cell__count{
+  fill: #99CA3C;
+}
+
+.filter-product .cell__count{
+  fill: #F5A623;
+}
+
+.filter-category .cell__count {
+  fill: #009FDA;
+}
+
+.filter-evidence:hover .cell__count,
+.filter-evidence.cell--selected .cell__count {
+  fill: #FFFFFF;
+  transition: all 0.5s;
+}
+
+.filter-product:hover .cell__count,
+.filter-product.cell--selected .cell__count  {
+  fill: #FFFFFF;
+  transition: all 0.5s;
+}
+
+.filter-category:hover .cell__count,
+.filter-category.cell--selected .cell__count  {
+  fill: #FFFFFF;
+  transition: all 0.5s;
+}
+
+/**
+ * Label
+ */
+
+.cell__label {
+  opacity: 0.1;
+  transition: all 1s;
+  transform: scale(0.1) translate(0,-10px);
+  pointer-events: none;
+}
+
+.cell__label tspan {
+  fill: white;
+  font-size: 12px;
+  text-anchor: middle;
+}
+
+.cell--animate-in .cell__label {
+  animation: labelAnimIn 0.5s linear forwards;
+}
+
+@keyframes labelAnimIn {
+  to {
+    opacity: 1;
+    transform: scale(1) translate(0,0);
+  }
+}
+
+/**
+ * Checkmark
+ */
+.cell__checkmark {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  stroke: #FFFFFF;
+  stroke-width:3px;
+  fill: transparent;
+  stroke-opacity: 0;
+  transform: translate(0,-10px);
+  pointer-events: none;
+}
+
+.cell--animate-in .cell__checkmark {
+  animation: checkmarkAnim 1s linear forwards;
+}
+
+.filter-category:hover .cell__checkmark,
+.filter-category.cell--selected .cell__checkmark,
+.filter-product:hover .cell__checkmark,
+.filter-product.cell--selected .cell__checkmark,
+.filter-evidence:hover .cell__checkmark,
+.filter-evidence.cell--selected .cell__checkmark  {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  stroke: #FFFFFF;
+  stroke-width:3px;
+  fill: transparent;
+  stroke-opacity: 1;
+  pointer-events: none;
+  transform: translate(0,0);
+  animation: checkmarkActiveAnim 1s ease-out forwards
+}
+
+@keyframes checkmarkAnim {
+  to {
+    stroke-dashoffset: 0;
+    stroke-opacity: 0.3;
+    transform: translate(0,0);
+  }
+}
+
+@keyframes checkmarkActiveAnim {
+  to {
+    stroke-dashoffset: 0;
+    stroke-opacity: 1;
+    transform: translate(0,0);
+  }
+}
+
+/**
+ * Helpers
+ */
+.cell--animation-delay-100 .cell__path,
+.cell--animation-delay-100 .cell__label,
+.cell--animation-delay-100 .cell__count,
+.cell--animation-delay-100 .cell__checkmark {
+  animation-delay: .1s;
+}
+
+.cell--animation-delay-200 .cell__path,
+.cell--animation-delay-200 .cell__label,
+.cell--animation-delay-200 .cell__count,
+.cell--animation-delay-200 .cell__checkmark {
+  animation-delay: .3s;
+}
+
+.cell--animation-delay-300 .cell__path,
+.cell--animation-delay-300 .cell__label,
+.cell--animation-delay-300 .cell__count,
+.cell--animation-delay-300 .cell__checkmark {
+  animation-delay: .5s;
+}
+
+.cell--animation-delay-400 .cell__path, 
+.cell--animation-delay-400 .cell__label,
+.cell--animation-delay-400 .cell__count,
+.cell--animation-delay-400 .cell__checkmark {
+  animation-delay: .7s;
+}
+
+.cell--animation-delay-500 .cell__path, 
+.cell--animation-delay-500 .cell__label,
+.cell--animation-delay-500 .cell__count,
+.cell--animation-delay-500 .cell__checkmark {
+  animation-delay: .9s;
 }
 

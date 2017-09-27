@@ -1,20 +1,21 @@
-EvidenceFinder.App = (function(ROUTER, ROUTES, VIEW_STATES, MENU, CELLS) {
+EvidenceFinder.App = (function(ROUTER, ROUTE, ROUTES, VIEW_STATES, MENU, CELLS, EVENTS, FILTERS) {
     function App(settings) {
         this.settings = settings || {};
         this.container = settings.container;
         this.state = {};
         this.state.viewState = VIEW_STATES.FULLSCREEN_RANDOM;
-        this.state.redraw = true;
         this.menu = new MENU({ app: this }); // this must exist before the router
-        this.cells = new CELLS({app:this});
+        this.cells = new CELLS({app:this, filters: FILTERS});
         this.router = new ROUTER({ app: this });
-        this.router.addOneRoute(ROUTES.HOME);
-        this.router.addOneRoute(ROUTES.RESULTS);
-        this.router.addOneRoute(ROUTES.ARTICLE);
-        this.router.route(window.location.hash);
+        this.router
+        .addRoute(new ROUTE({path: "#/", viewState: VIEW_STATES.FULLSCREEN_RANDOM}))
+        .addRoute(new ROUTE({path: "#/filtered", viewState: VIEW_STATES.FULLSCREEN_ORDERED}))
+        .addRoute(new ROUTE({path: "#/results", viewState: VIEW_STATES.SPLITSCREEN_RESULTS}))
+        .addRoute(new ROUTE({path: "#/article/:id", viewState: VIEW_STATES.SPLITSCREEN_DETAILS}))
+        .addRoute(new ROUTE({path: "#/article/:id/related", viewState: VIEW_STATES.SPLITSCREEN_RELATED}))
+        .go(window.location.hash);
         this.registerEvents();
     }
-
     App.prototype = {
         handleArticleClick: function(e) {
             window.location.hash = "#/article";
@@ -25,27 +26,36 @@ EvidenceFinder.App = (function(ROUTER, ROUTES, VIEW_STATES, MENU, CELLS) {
         handleViewArticlesButtonClick: function(e) {
             window.location.hash = "#/results";
         },
+        onEvent:function(eventType, payload){
+            switch(eventType){
+                case EVENTS.ROUTE_CHANGE:
+                    this.setState({
+                        redraw: true,
+                        viewState: this.router.route.viewState
+                    });
+                break;
+            }
+        },
         onStateChange: function(redraw) {
-            if (this.state.redraw) {
-
-                // respond to route changes
-                switch (this.state.route.path) {
-                    case ROUTES.HOME.path:
+            var redraw = redraw === false ? false : true;
+            if (redraw) {
+                // which view to draw
+                switch (this.state.viewState) {
+                    case VIEW_STATES.FULLSCREEN_RANDOM:
                         this.showViewFullscreenRandom();
                         break;
-                    case ROUTES.RESULTS.path:
+                    case VIEW_STATES.SPLITSCREEN_RESULTS:
                         this.showViewSplitscreenResults();
                         break;
-                    case ROUTES.ARTICLE.path:
+                    case VIEW_STATES.SPLITSCREEN_DETAILS:
                         this.showViewSplitscreenDetail();
                         break;
-                    case ROUTES.RELATED.path:
+                    case VIEW_STATES.SPLITSCREEN_DETAILS:
                         this.showViewSplitscreenDetail();
                         break;
                     default:
                         this.showViewFullscreenRandom();
                 }
-                
             }
             return this;
         },
@@ -92,7 +102,6 @@ EvidenceFinder.App = (function(ROUTER, ROUTES, VIEW_STATES, MENU, CELLS) {
         showViewFullscreenRandom: function() {
             this.removeAllStateClasses();
             this.menu.hide();
-            this.state.viewState = VIEW_STATES.FULLSCREEN_RANDOM;
             document
                 .querySelector(".evidence-finder")
                 .classList.add(VIEW_STATES.FULLSCREEN_RANDOM);
@@ -103,17 +112,15 @@ EvidenceFinder.App = (function(ROUTER, ROUTES, VIEW_STATES, MENU, CELLS) {
         showViewSplitscreenDetail: function() {
             this.removeAllStateClasses();
             this.menu.hide();
-            this.state.viewState = VIEW_STATES.SPLITSCREEN_DETAILS;
             document
                 .querySelector(".evidence-finder")
                 .classList.add(VIEW_STATES.SPLITSCREEN_DETAILS);
-            console.log("splitscreen details", this.state);
+            console.log("splitscreen details");
             return this;
         },
         showViewSplitscreenResults: function() {
             this.removeAllStateClasses();
             this.menu.hide();
-            this.state.viewState = VIEW_STATES.SPLITSCREEN_RESULTS;
             document
                 .querySelector(".evidence-finder")
                 .classList.add(VIEW_STATES.SPLITSCREEN_RESULTS);
@@ -125,10 +132,13 @@ EvidenceFinder.App = (function(ROUTER, ROUTES, VIEW_STATES, MENU, CELLS) {
     return App;
 })(
     EvidenceFinder.Router,
+    EvidenceFinder.Route,
     EvidenceFinder.ROUTES,
     EvidenceFinder.VIEW_STATES,
     EvidenceFinder.Views.Menu,
-    EvidenceFinder.Views.Cells
+    EvidenceFinder.Views.Cells,
+    EvidenceFinder.EVENTS,
+    EvidenceFinder.Collections.FILTERS
 );
 
 /**

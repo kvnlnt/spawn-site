@@ -11,14 +11,7 @@ EvidenceFinder.Filter = (function(){
       this.id = settings.id;
       this.label = settings.label;
       this.filterType = settings.filterType;
-  };
-
-  // static methods
-
-  Filter.getFiltersByType = function(FILTERS, FILTER_TYPE) {
-    return FILTERS.filter(function(a){
-      return a.filterType === FILTER_TYPE
-    });
+      this.isSelected = false;
   };
 
   // instance methods

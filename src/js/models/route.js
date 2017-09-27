@@ -1,7 +1,7 @@
 EvidenceFinder.Route = function(settings) {
     var settings = settings || {};
     this.path = settings.path;
-    this.callback = settings.callback;
+    this.viewState = settings.viewState;
     this.pathTemplate = this.replacePathParamsWithChar(this.path, '?');
     this.pathParamIndices = this.multiIndexOf(this.pathTemplate, '?');
 };

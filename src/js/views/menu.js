@@ -77,17 +77,17 @@ EvidenceFinder.Views.Menu = (function(VIEW_STATES, UTIL, FILTERS, FILTER_TYPES, 
       return this;
     },
     renderEvidenceFilters: function(){
-      var filters = FILTER.getFiltersByType(FILTERS, FILTER_TYPES.EVIDENCE);
+      var filters = FILTERS.getBy('filterType', FILTER_TYPES.EVIDENCE);
       this.renderFilters(filters, '.menu__evidence-type');
       return this;
     },
     renderProductFilters: function(){
-      var filters = FILTER.getFiltersByType(FILTERS, FILTER_TYPES.PRODUCT);
+      var filters = FILTERS.getBy('filterType', FILTER_TYPES.PRODUCT);
       this.renderFilters(filters, '.menu__product');
       return this;
     },
     renderCategoryFilters: function(){
-      var filters = FILTER.getFiltersByType(FILTERS, FILTER_TYPES.CATEGORY);
+      var filters = FILTERS.getBy('filterType', FILTER_TYPES.CATEGORY);
       this.renderFilters(filters.splice(0, filters.length/2), '.menu__category:nth-child(1)');
       this.renderFilters(filters.splice(filters.length/2, filters.length), '.menu__category:nth-child(2)');
       return this;
@@ -113,7 +113,7 @@ EvidenceFinder.Views.Menu = (function(VIEW_STATES, UTIL, FILTERS, FILTER_TYPES, 
 }(
   EvidenceFinder.VIEW_STATES,
   EvidenceFinder.util,
-  EvidenceFinder.FILTERS,
+  EvidenceFinder.Collections.FILTERS,
   EvidenceFinder.FILTER_TYPES,
   EvidenceFinder.Filter
 ));
