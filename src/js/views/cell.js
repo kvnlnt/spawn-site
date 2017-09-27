@@ -108,6 +108,10 @@ EvidenceFinder.Cell = (function(EASING, UTIL) {
             this.parent.setGridToOrdered();
         },
 
+        moveTo: function(gridCoords){
+            this.el.setAttribute("transform", "translate("+gridCoords.x+", "+gridCoords.y+")");
+        },
+
         setPoints: function(points) {
             this.el.setAttribute("points", points);
             this.points = points;

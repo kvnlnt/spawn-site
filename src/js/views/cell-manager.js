@@ -4,6 +4,7 @@ EvidenceFinder.Views.Cells = (function(CELL, FILTERS, VIEW_STATES, UTIL) {
         this.app = settings.app;
         this.grid = Cells.GRIDS.RANDOM;
         this.filters = settings.filters;
+        this.cells = [];
     }
 
     Cells.prototype = {
@@ -28,9 +29,10 @@ EvidenceFinder.Views.Cells = (function(CELL, FILTERS, VIEW_STATES, UTIL) {
         },
 
         reflowCells: function() {
-            // this.cells.forEach(function(cell){
-            //   if(cell.filter.isSelected)
-            // });
+            var that = this;
+            this.cells.forEach(function(cell, i) {
+                cell.moveTo(that.grid[i]);
+            });
         },
 
         render: function() {
@@ -48,6 +50,7 @@ EvidenceFinder.Views.Cells = (function(CELL, FILTERS, VIEW_STATES, UTIL) {
                     points: that.calcHexPoints(0, 0, Cells.gridRadius)
                 });
                 svg.appendChild(cell.el);
+                that.cells.push(cell);
                 cell.animateIn();
             });
             return this;
@@ -60,7 +63,7 @@ EvidenceFinder.Views.Cells = (function(CELL, FILTERS, VIEW_STATES, UTIL) {
 
         setGridToOrdered: function() {
             this.grid = Cells.GRIDS.ORDERED;
-            this.reflowGrid();
+            this.reflowCells();
             return this;
         },
 
