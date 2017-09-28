@@ -1,39 +1,20 @@
 {
     "meta": {
-        "title": "Evidence Finder"
+        "title": "App"
     },
     "js": [
-        "./src/js/polyfills/object.assign.js",
+        "./src/js/polyfills/example.js",
         "./src/js/constants.js",
-        "./src/js/data/articles.js",
-        "./src/js/data/filters.js",
-        "./src/js/modules/util.js",
+        "./src/js/data/example.js",
+        "./src/js/modules/helpers.js",
         "./src/js/modules/router.js",
         "./src/js/modules/template.js",
-        "./src/js/modules/easing.js",
         "./src/js/models/route.js",
-        "./src/js/models/article.js",
-        "./src/js/models/filter.js",
-        "./src/js/collections/articles.js",
-        "./src/js/collections/filters.js",
-        "./src/js/views/menu.js",
-        "./src/js/views/cell.js",
-        "./src/js/views/cell-manager.js",
+        "./src/js/collections/example.js",
+        "./src/js/views/example.js",
         "./src/js/app.js"
     ],
     "css": [
-        "./src/css/ie.css",
-        "./src/css/colors.css",
-        "./src/css/global.css",
-        "./src/css/logo.css",
-        "./src/css/menu.css",
-        "./src/css/tally.css",
-        "./src/css/cta.css",
-        "./src/css/results.css",
-        "./src/css/articles.css",
-        "./src/css/details.css",
-        "./src/css/icons.css",
-        "./src/css/cells.css",
-        "./src/css/main.css"
+        "./src/css/global.css"
     ]
 }

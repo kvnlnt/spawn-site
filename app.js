@@ -12,7 +12,7 @@ const program = require('commander');
 // TITLE
 
 console.log('');
-console.log(chalk.cyan('EVIDENCE FINDER'));
+console.log(chalk.cyan(app.meta.title));
 console.log('');
 
 // SETUP

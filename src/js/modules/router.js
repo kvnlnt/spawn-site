@@ -8,7 +8,7 @@
  * @param      {<type>}             EVENTS  Events enum
  * @return
  */
-EvidenceFinder.Router = (function(EVENTS){
+App.Router = (function(MODULES, EVENTS){
     
     function Router(settings){
         var settings = settings || {};
@@ -51,8 +51,6 @@ EvidenceFinder.Router = (function(EVENTS){
                 newPath: this.path
             });
 
-
-
             return this;
         },
         handleHashChange: function(e){
@@ -63,6 +61,12 @@ EvidenceFinder.Router = (function(EVENTS){
         }
     };
 
-    return Router;
+
+    /**
+     * Export
+     */
+    MODULES.Router = Router;
+
+    return MODULES;
     
-}(EvidenceFinder.EVENTS));
+}(App.Modules || {}, App.EVENTS));

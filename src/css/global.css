@@ -1,23 +1,126 @@
-html, body {
+.main {
   width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  min-width: 960px;
+  transition: all 1s;
 }
 
-.evidence-finder {
-  width: 100%;
-  min-height: 100%;
-  background: linear-gradient(270deg, #0068ae 0%, #001963 100%);
-  font-family: verdana;
+.main__wrapper {
+  margin:0 auto;
+  display: block;
   overflow: hidden;
-  display: table;
-  table-layout: fixed;
   height: 100%;
 }
 
-.pane {
-  display: table-cell;
-  vertical-align: top;
+.main__header__wrapper {
+  width: 100%;
+  height: 116px;
+  position: relative;
+  transition: all 1s;
+  opacity: 1;
+}
+
+.main__header {
+  width: 960px;
+  height: 116px;
+  display: inline-block;
+  transition: all 1s;
+  margin-right:-480px;
+  position: absolute;
+  right:50%;
+}
+
+.main__header__logo {
+  width:275px;
+  cursor: pointer;
+  position: absolute;
+  left:0;
+  display: block;
+}
+
+.main__header__menu {
+  display: block;
+  text-align: right;
+  position: absolute;
+  right:20px;
+  top: 43px;
+  cursor: pointer;
+}
+
+.main__body__wrapper {
+  width: 100%;
+  position: relative;
+  min-height: 720px;
+}
+
+.main__body {
+  width: 960px;
+  transition: all 1s;
+  margin:0 auto;
+  position: absolute;
+  margin-right:-480px;
+  right: 50%;
+}
+
+.main__body__view__articles {
+  cursor: pointer;
+}
+
+.main__body__tally {
+}
+
+.main__body__filters {
+}
+
+.main__body__cta {
+  width:340px;
+  position: absolute;
+  right: 0;
+  top: 50px;
+  opacity: 1;
+  transition: all 0.5s;
+}
+
+/**
+ * Responsive
+ */
+.view-splitscreen-results .main {
+  width:50%;
+  transition: all 1s;
+}
+
+.view-splitscreen-results .main__header__wrapper,
+.view-splitscreen-details .main__header__wrapper {
+  text-align: right;
+  transition: all 1s;
+}
+
+.view-splitscreen-details .main__header__wrapper {
+  opacity: 0;
+}
+
+.view-splitscreen-results .main__header,
+.view-splitscreen-details .main__header {
+  width: 428px;
+  transition: all 1s;
+  right:0;
+  margin-right: 0;
+}
+
+.view-splitscreen-results .main__body,
+.view-splitscreen-details .main__body {
+  width: 428px;
+  transition: all 1s;
+  right:0;
+  margin-right:0;
+}
+
+.view-splitscreen-results .main__body__cta,
+.view-splitscreen-details .main__body__cta {
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.view-splitscreen-details .main {
+  width:0%;
+  transition: all 1s;
 }
