@@ -9,15 +9,7 @@ function Deploy(options) {
 
 Deploy.prototype = {
     deployToTestEnv: function(username){
-        var cmd = "rsync -auz --progress --exclude '*.svn' ./build "+username+"@dev.toolhouse.com:/sites/evidence-finder.dev.toolhouse.com/www-root/";
-        exec(cmd, (err, stdout, stderr) => {
-          if (err) {
-            console.error(err);
-            return;
-          }
-          console.log(stdout);
-        });
-        console.log(chalk.cyan("\u2713"), chalk.white("Deployed", "http://evidence-finder.dev.toolhouse.com"));
+        // DIY
     },
     // TODO
     deployToProdEnv: function(){
