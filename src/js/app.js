@@ -3,7 +3,7 @@ App.App = (function(ROUTER, ROUTE, VIEW_STATES, EVENTS) {
         this.settings = settings || {};
         this.container = settings.container;
         this.state = {};
-        this.state.viewState = VIEW_STATES.FULLSCREEN_RANDOM;
+        this.state.viewState = null;
         this.router = new ROUTER({ app: this });
         this.router
         .addRoute(new ROUTE({path: "#/", viewState: VIEW_STATES.A}))
