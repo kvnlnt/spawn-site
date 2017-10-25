@@ -3,7 +3,6 @@ const fs = require('fs-extra');
 const chalk = require("chalk");
 const UglifyJS = require("uglify-js");
 const UglifyCss = require("uglifycss");
-const archiver = require('archiver');
 
 function Build(options) {
     var options = options || {};
@@ -20,9 +19,9 @@ Build.prototype = {
 
     compileCss: function() {
         var concatCss = this.concatFiles(app.css);
-        fs.outputFileSync('./build/assets/css/bundle.css', concatCss);
+        fs.outputFileSync('./build/css/bundle.css', concatCss);
         var minifiedCss = UglifyCss.processString(concatCss);
-        fs.writeFileSync('./build/assets/css/bundle.min.css', minifiedCss);
+        fs.writeFileSync('./build/css/bundle.min.css', minifiedCss);
         return this;
     },
 
@@ -35,21 +34,21 @@ Build.prototype = {
             .replace(/<!-- META.descr -->/g, app.meta.descr)
             .replace(/<!-- META.keywords -->/g, app.meta.keywords)
             .replace(/<!-- META.favicon -->/g, app.meta.favicon)
-            .replace("<!-- CSS -->", '<link href="assets/css/bundle.min.css?ts=' + ts + '" rel="stylesheet" type="text/css"/>')
-            .replace("<!-- JS -->", '<script src="assets/js/bundle.min.js?ts=' + ts + '"></script>');
+            .replace("<!-- CSS -->", '<link href="css/bundle.min.css?ts=' + ts + '" rel="stylesheet" type="text/css"/>')
+            .replace("<!-- JS -->", '<script src="js/bundle.min.js?ts=' + ts + '"></script>');
         fs.outputFileSync('./build/index.html', template);
         return this;
     },
 
     compileJs: function() {
         var concatJs = this.concatFiles(app.js);
-        fs.outputFileSync('./build/assets/js/bundle.js', concatJs);
+        fs.outputFileSync('./build/js/bundle.js', concatJs);
         try{
-            var minifiedJs = UglifyJS.minify('./build/assets/js/bundle.js');            
+            var minifiedJs = UglifyJS.minify('./build/js/bundle.js');            
         } catch (err) {
             console.log(err);
         }
-        fs.writeFileSync('./build/assets/js/bundle.min.js', minifiedJs.code);
+        fs.writeFileSync('./build/js/bundle.min.js', minifiedJs.code);
         return this;
     },
 

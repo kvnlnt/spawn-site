@@ -23,7 +23,6 @@ Dev.prototype = {
         // configure express server
         this.server.use('/bower_components', this.reporting.bind(this), express.static('bower_components'));
         this.server.use('/src', this.reporting.bind(this), express.static('src'));
-        this.server.use('/assets', this.reporting.bind(this), express.static('assets'));
 
         // register routes
         this.server.get('/', function(req, res) {

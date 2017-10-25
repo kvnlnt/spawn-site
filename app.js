@@ -3,8 +3,9 @@ const chalk = require('chalk');
 const Clean = require('./tasks/clean');
 const Dev = require('./tasks/dev');
 const Build = require('./tasks/build');
+const Test = require('./tasks/test');
 const fs = require('fs');
-const package = require('./package');
+const pkg = require('./package');
 const program = require('commander');
 
 // TITLE
@@ -15,7 +16,7 @@ console.log('');
 
 // SETUP
 
-program.version(package.version);
+program.version(pkg.version);
 
 // COMMANDS
 
@@ -44,6 +45,15 @@ program
     .action(function(options) {
         new Clean();
         new Build();
+    });
+
+program
+    .command('test')
+    .description('build and run mocha tests')
+    .action(function(options) {
+        new Clean();
+        new Build();
+        new Test();
     });
 
 // auto run help

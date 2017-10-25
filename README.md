@@ -15,6 +15,9 @@ Modules should be loaded in the following order:
 7. Views
 8. Main App
 
+# TESTING
+    mocha
+
 # REF:
 
 * https://matthewlein.com/tools/ceaser
