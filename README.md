@@ -13,6 +13,7 @@ Modules should be loaded in the following order:
 5. Models
 6. Collections
 7. Views
+8. Controllers
 8. Main App
 
 # TESTING

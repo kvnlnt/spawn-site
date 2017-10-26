@@ -6,9 +6,10 @@
     function Route(settings) {
         var settings = settings || {};
         this.path = settings.path;
-        this.viewState = settings.viewState;
+        this.controller = settings.controller;
         this.pathTemplate = this.replacePathParamsWithChar(this.path, '?');
         this.pathParamIndices = this.multiIndexOf(this.pathTemplate, '?');
+        this.isDefault = settings.isDefault === true ? true : false;
     };
 
     Route.prototype = {

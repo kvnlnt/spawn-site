@@ -2,5 +2,16 @@
 /**
  * Collection of helper functions, should be pure
  */
-App.Modules.Helpers = {
-};
+
+(function(MODULES){
+
+  var Helpers = {};
+
+  /**
+   * Export
+   */
+  MODULES.Helpers = Helpers;
+
+  return MODULES;
+
+}(App.Modules));

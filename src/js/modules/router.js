@@ -8,7 +8,7 @@
  * @param      {<type>}             EVENTS  Events enum
  * @return
  */
-App.Router = (function(MODULES, EVENTS){
+(function(MODULES, EVENTS){
     
     function Router(settings){
         var settings = settings || {};
@@ -22,9 +22,16 @@ App.Router = (function(MODULES, EVENTS){
     };
 
     Router.prototype = {
+        init: function(){
+            var dr = this.getDefaultRoute();
+            if(dr) this.go(dr.path);
+        },
         addRoute: function(route) {
             this.routes.push(route);
             return this;
+        },
+        getDefaultRoute: function(){
+            return this.routes.filter(function(r){  return r.isDefault })[0] || null;
         },
         getRouteByPath: function(path){
             path = path || "#/";
@@ -57,7 +64,8 @@ App.Router = (function(MODULES, EVENTS){
             this.go(window.location.hash);
         },
         registerEvents: function(){
-            window.addEventListener("hashchange", this.handleHashChange.bind(this))
+            window.addEventListener("hashchange", this.handleHashChange.bind(this));
+            return this;
         }
     };
 
