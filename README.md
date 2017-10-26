@@ -1,3 +1,6 @@
+# SPAwn
+Start an SPA (single page application) from scratch with zero frontend dependencies and as few dev dependencies as possible without sacrificing essentials like a dev server, tasks and tests. 
+
 # Setup
 
     npm install
@@ -18,7 +21,3 @@ Modules should be loaded in the following order:
 
 # TESTING
     mocha
-
-# REF:
-
-* https://matthewlein.com/tools/ceaser
